@@ -13,19 +13,20 @@ _OBJ = dd128_arithmetics.o dd128_linalg.o \
        lap_init.o lap_paraopt.o lap_maehly.o lap_rmsd.o laplace_minimax.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-_OBJT = test_laplace.o
-OBJT = $(patsubst %,$(ODIR)/%,$(_OBJT))
-
 $(ODIR)/%.o: $(SDIR)/%.F90  $(DEPS)
-	$(FC) -c -o $@ $< $(FFLAGS) -I./$(IDIR)
+	$(FC) -c $(FFLAGS) -I./$(IDIR) -o $@ $<
 
-$(LDIR)/liblaplace_minimax.a: $(OBJ)
+$(LDIR)/liblaplace_minimax.a: $(OBJ) $(DEPS)
 	ar rcs $@ $^
 
-test_laplace: $(OBJ) $(OBJT) $(DEPS)
-	$(FC) -o test_laplace $(FFLAGS) -I./$(IDIR) -L./$(LDIR) -llaplace_minimax $(OBJT)
+test_laplace: $(OBJ) $(DEPS)
+	$(FC) $(FFLAGS) -I./$(IDIR) $(SDIR)/test_laplace.F90 -L./$(LDIR) -llaplace_minimax -o test_laplace
 
 .PHONY: clean
 
 clean:
 	rm -f $(ODIR)/*.o $(LDIR)/liblaplace_minimax.a test_laplace
+
+.PHONY: all 
+
+all:	$(LDIR)/liblaplace_minimax.a test_laplace
