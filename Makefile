@@ -1,12 +1,10 @@
 FC=gfortran
-FFLAGS= -O3 -H -ffree-form -Wall -I/opt/local/include -L/opt/local/lib 
-LIBS= -lblas -llapack -lm
+FFLAGS= -O3 -H -ffree-form -Wall
 
 IDIR=inc
 ODIR=obj
 SDIR=src
 LDIR=lib
-
 
 _DEPS = consts.h  init.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
@@ -25,7 +23,7 @@ $(LDIR)/liblaplace_minimax.a: $(OBJ)
 	ar rcs $@ $^
 
 test_laplace: $(OBJ) $(OBJT) $(DEPS)
-	$(FC) -o test_laplace $(FFLAGS) $(LIBS) -I./$(IDIR) -L./$(LDIR) -llaplace_minimax $(OBJT)
+	$(FC) -o test_laplace $(FFLAGS) -I./$(IDIR) -L./$(LDIR) -llaplace_minimax $(OBJT)
 
 .PHONY: clean
 
