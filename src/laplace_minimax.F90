@@ -4,11 +4,71 @@ subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
                            do_rmsd)
 !------------------------------------------------------------------------------!
 !
-! compute the numerical Laplace transformation of the orbital energy 
-! denominator by using the Remez algorithm to compute the minimax solution.
-! (see Takatsuka et al. JCP ...)
+! Routine computes the numerical Laplace transformation of the orbital energy 
+! denominator:
 !
-! BHP, summer 2015
+!   1 / x = \sum_k  w_k * exp( -a_k * x )
+!
+! The Remez algorithm is employed to compute the minimax solution.
+! The Newton-Maehly algorithm is used to find all extremum points. Please
+! cite the following paper if you use the library:
+!
+! (1) A. Takatsuka et al., The Journal of Chemical Physics 129, 044112 (2008); 
+!      doi: 10.1063/1.2958921
+!
+! (2) B. Helmich-Paris and L. Visscher, Journal of Computational Physics ???, 
+!      ??? (2016); doi: 
+!
+! 
+!  variable             explanation
+!  --------             -----------
+!
+!   xpnts                (output) double precision array with 
+!                          Laplace exponents (a_k)
+!
+!   wghts                (output) double presicion array with 
+!                          Laplace weights   (w_k)
+!
+!   nlap                 (input)  number of quadrature (Laplace) points
+!
+!   eig                  (input)  double presicion array with orbital energies
+!                          in ascending order
+!
+!   neig                 (input)  dimension of eig array
+!
+!   istr[o/v]            (input)  index of first element of occupied (o) and
+!                           virtual (v) orbitals in eig
+!
+!   iend[o/v]            (input)  index of last element of occupied (o) and 
+!                           virtual (v) orbitals in eig
+!
+!   mxiter               (optional) maximum number of iterations. Used for each
+!                           of the iterative prodecures (Remez + Newton(-Maehly))
+!
+!   iprint               (optional) print level
+!
+!   stepmx               (optional) maximum step length used for each of the 
+!                           Newton type procedures
+!
+!   tolrng               (optional) tolerance threshold for the Newton-Maehly
+!                           procedure that determines the extremum points
+!
+!   tolpar               (optional) tolerance threshold for the Newton procedure
+!                           that computes the Laplace parameters at each extremum
+!                           point
+!
+!   delta                (optional) shift parameter for initializating the next
+!                           extremum point to be determined by Newton-Maehly
+!
+!   afact                (optional) factor for the line search algorithm used
+!                           in combination with the Newton algorithm to determine
+!                           the Laplace parameters
+!
+!   do_rmsd              (optional) compute an RMS error after the optimization
+!                           of the Laplace parameters
+!
+!
+! Benjamin Helmich-Paris, summer 2015
 !
 !------------------------------------------------------------------------------!
 
