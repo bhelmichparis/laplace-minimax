@@ -1,5 +1,5 @@
 !==============================================================================!
-subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
+subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
                            mxiter,iprint,stepmx,tolrng,tolpar,delta,afact,&
                            do_rmsd)
 !------------------------------------------------------------------------------!
@@ -95,12 +95,13 @@ subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
  real(8), intent(in), optional :: stepmx, tolrng, tolpar, delta, afact
 
 !output:
+ real(8), intent(inout) :: errmax
  real(8), intent(inout) :: xpnts(nlap), wghts(nlap)
 
 ! local scalars:
  logical :: do_rmsd0
  integer :: iter, niter, nxpts, ilap, iprnt0, mxitr0
- real(8) :: errbnd, rnge(2), bounds(2), elow, ehigh, ehomo, elumo, errmsd, &
+ real(8) :: rnge(2), bounds(2), elow, ehigh, ehomo, elumo, errmsd, &
             afct0, stpmx0, tlrng0, tlpar0, delt0
 
 ! local arrays:
@@ -108,7 +109,7 @@ subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
  real(8) :: xpts(2,2*mxlap+1), xpnts2(2,mxlap), wghts2(2,mxlap), &
             jaco(2,2*mxlap+1,2*mxlap+1), func(2,2*mxlap+1), &
             xold(2,2*mxlap+1), xnew(2,2*mxlap+1), delx(2,2*mxlap+1), &
-            grad(2,2*mxlap+1)
+            grad(2,2*mxlap+1), errbnd(2) 
 
  ! process optional arguments
  if (present(mxiter)) then
@@ -167,14 +168,17 @@ subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
  end if
 
  nxpts  = 2*nlap+1
- errbnd = -10.**(-nlap)
 
+ ! initialize maximum error
+ errbnd(1) = -10.**(-nlap)
+ errbnd(2) = d0
+
+ ! bounds of numerical quadrature [x_min,x_max]
  elow  = eig(istro)
  ehomo = eig(iendo)
  elumo = eig(istrv)
  ehigh = eig(iendv)
 
- ! bounds of numerical quadrature [x_min,x_max]
  bounds(1) = d2*(elumo-ehomo)
  bounds(2) = d2*(ehigh-elow )
 
@@ -199,7 +203,7 @@ subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
  call lap_init(xpnts2,wghts2,rnge,nlap)
 
  if (locdbg .or. iprnt0 .gt. 8) then
-  write(istdout,*) chrdbg,"initial max. error:",errbnd
+  write(istdout,*) chrdbg,"initial max. error:",errbnd(1:2)
   write(istdout,*) chrdbg,"initial exponents:"
   write(istdout,"(2(E55.40,1x))") xpnts2(1:2,1:nlap)
  
@@ -242,18 +246,21 @@ subroutine laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
   call dd128_div_doub_assign(wghts2(1,ilap),bounds(1))
  end do
 
+ ! compute the RMSD error
+ if (do_rmsd0) &
+ & call lap_rmsd(errmsd,eig,xpnts2,wghts2,istro,iendo,istrv,iendv,neig,nlap)
+
  do ilap = 1,nlap
   xpnts(ilap) = xpnts2(1,ilap)
   wghts(ilap) = wghts2(1,ilap)
  end do
 
- ! compute the RMSD error
- if (do_rmsd0) &
- & call lap_rmsd(errmsd,eig,xpnts,wghts,istro,iendo,istrv,iendv,neig,nlap)
+ ! pass maximum error to calling routine
+ errmax = errbnd(1)
 
  ! print output
  if (iprnt0 .gt. 0) then
-  write(istdout,'(a,2(1x,e12.3))')     '  maximum absolute error of distribution:',abs(errbnd)
+  write(istdout,'(a,2(1x,e12.3))')     '  maximum absolute error of distribution:',abs(errbnd(1))
   if (do_rmsd0) &
    write(istdout,'(a,2(1x,e12.3))')     '  RMSD error of distribution:            ',errmsd
   write(istdout,'(/a)')      '                  exponents              weights'
