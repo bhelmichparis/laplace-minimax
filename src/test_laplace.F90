@@ -18,6 +18,7 @@ program test_laplace
 
 ! local scalars:
  integer :: nlap, istro, iendo, istrv, iendv
+ real(8) :: errmax
 
 ! local arrays:
  real(8) :: xpnts(mxlap), wghts(mxlap), eig(neig)
@@ -30,7 +31,7 @@ program test_laplace
  nlap = 3
  eig(1) = -2.d0; eig(2) = -1.d0; eig(3) = +1.d0; eig(4) = +2.d0
 
- call laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,iprint=1)
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,iprint=1,do_rmsd=.true.)
 
 ! ------
 ! test 2
@@ -38,7 +39,7 @@ program test_laplace
  nlap = 8
  eig(1) = -23.d0; eig(2) = -1.7d0; eig(3) = +1.7d0; eig(4) = +23.d0
 
- call laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,iprint=1,do_rmsd=.true.)
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,iprint=1,do_rmsd=.true.)
 
 ! ------
 ! test 3
@@ -46,7 +47,7 @@ program test_laplace
  nlap = 25
  eig(1) = -2.3d3; eig(2) = -0.8d-1; eig(3) = +0.8d-1; eig(4) = +2.3d3
 
- call laplace_minimax(xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,iprint=1)
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,iprint=1,do_rmsd=.true.)
 
 end program test_laplace
 !==============================================================================!

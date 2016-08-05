@@ -37,7 +37,7 @@ subroutine lap_paraopt(niter,weight,expon,error,&                 !out
 
 ! output:
  integer,intent(out)   :: niter
- real(8),intent(inout) :: weight(2,nlap), expon(2,nlap), error
+ real(8),intent(inout) :: weight(2,nlap), expon(2,nlap), error(2)
 
 ! local:
  logical :: converged, check
@@ -61,8 +61,8 @@ subroutine lap_paraopt(niter,weight,expon,error,&                 !out
   xnew(1,nlap+ilap) = weight(1,ilap)
   xnew(2,nlap+ilap) = weight(2,ilap)
  end do
- xnew(1,nxpts) = error
- xnew(2,nxpts) = d0
+ xnew(1,nxpts) = error(1)
+ xnew(2,nxpts) = error(2)
  
  slope(1) = 999.d0
  slope(2) = d0
@@ -164,7 +164,8 @@ subroutine lap_paraopt(niter,weight,expon,error,&                 !out
   weight(1,ilap) = xnew(1,nlap+ilap) 
   weight(2,ilap) = xnew(2,nlap+ilap) 
  end do
- error = xnew(1,nxpts)
+ error(1) = xnew(1,nxpts)
+ error(2) = xnew(2,nxpts)
  
  niter = iter
 
