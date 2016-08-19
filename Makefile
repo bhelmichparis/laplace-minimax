@@ -39,6 +39,7 @@ IDIR=inc
 ODIR=obj
 SDIR=src
 LDIR=lib
+BDIR=bin
 
 _DEPS = consts.h  init.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
@@ -54,13 +55,18 @@ $(LDIR)/liblaplace_minimax.a: $(OBJ) $(DEPS)
 	ar rcs $@ $^
 
 test_laplace: $(OBJ) $(DEPS)
-	$(FC) $(FFLAGS) -I./$(IDIR) $(SDIR)/test_laplace.F90 -L./$(LDIR) -llaplace_minimax -o test_laplace
+	$(FC) $(FFLAGS) -I./$(IDIR) $(SDIR)/test_laplace.F90 -L./$(LDIR) -llaplace_minimax -o $(BDIR)/test_laplace
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o $(LDIR)/liblaplace_minimax.a test_laplace
+	rm -f $(ODIR)/*.o $(LDIR)/liblaplace_minimax.a $(BDIR)/test_laplace
 
 .PHONY: all 
 
-all:	$(LDIR)/liblaplace_minimax.a test_laplace
+all:	$(LDIR)/liblaplace_minimax.a $(BDIR)/test_laplace
+
+.PHONY: test
+
+test:
+	$(BDIR)/run_test.sh
