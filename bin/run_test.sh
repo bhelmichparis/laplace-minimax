@@ -21,12 +21,18 @@ fi
 
 CHECK_SCRIPT='laplace-minimax.check'
 LOG_FILE='/tmp/laplace-minimax.log'
+TEST_PROG='./bin/test_laplace'
 
 #######################################################################
 # run the test
 #######################################################################
-./bin/test_laplace > ${LOG_FILE}
-
+if [ -e "${TEST_PROG}"  ]; then
+ echo "\nTest convergence of the mimimax algorithm ...\n"
+ ${TEST_PROG} > ${LOG_FILE}
+else
+ echo "Cannot find test executable!"
+ exit -1
+fi
 
 #######################################################################
 #  CHECK SCRIPT

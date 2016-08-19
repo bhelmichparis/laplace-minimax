@@ -68,5 +68,5 @@ all:	$(LDIR)/liblaplace_minimax.a $(BDIR)/test_laplace
 
 .PHONY: test
 
-test:
+test:	test_laplace
 	$(BDIR)/run_test.sh
