@@ -26,12 +26,12 @@ TEST_PROG='./bin/test_laplace'
 #######################################################################
 # run the test
 #######################################################################
-if [ -e "${TEST_PROG}"  ]; then
+if [ -x "${TEST_PROG}"  ]; then
  echo "\nTest convergence of the mimimax algorithm ...\n"
  ${TEST_PROG} > ${LOG_FILE}
 else
  echo "Cannot find test executable!"
- exit -1
+ exit 1
 fi
 
 #######################################################################
@@ -143,7 +143,7 @@ then
   exit 0
 else
   echo THERE IS A PROBLEM
-  exit 1
+  exit 2
 fi
 
 %EOF%
@@ -158,6 +158,11 @@ ${CHECK_SHELL} ${CHECK_SCRIPT} ${LOG_FILE}
 # clean up
 #######################################################################
 
-rm -f ${CHECK_SCRIPT} ${LOG_FILE}
+if [ -x /bin/rm ]; then
+ /bin/rm -f ${CHECK_SCRIPT} ${LOG_FILE}
+else
+ echo "/bin/rm not available?"
+ exit 3
+fi
 
 
