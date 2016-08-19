@@ -6,6 +6,8 @@
 #
 #  -  ifort (IFORT) 15.0.2 20150121
 #
+#  -  pgf95 10.9-0 64-bit target on x86-64 Linux -tp gh-64 
+#
 #-------------------------------------------------------------#
 
 # printing of variables
@@ -22,7 +24,11 @@ else
   ifeq ($(FC),ifort)
    FFLAGS+= -O3 -free -warn all -assume protect_parens -nogen-interfaces
   else
-   $(error Unknown Fortran compiler. User either ifort or gfortran!)
+   ifeq ($(FC),pgf95)
+    FFLAGS+= -O4 -fast -fastsse -Mfree -Mlarge_arrays -Mcache_align -Msmart -Msmartalloc -Minform=inform
+   else
+    $(error Unknown Fortran compiler. User either ifort or gfortran!)
+   endif
   endif
  endif
 endif
