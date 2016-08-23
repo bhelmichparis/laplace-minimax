@@ -1,7 +1,7 @@
 !==============================================================================!
 subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
                            mxiter,iprint,stepmx,tolrng,tolpar,delta,afact,&
-                           do_rmsd)
+                           do_rmsd,do_init)
 !------------------------------------------------------------------------------!
 !
 ! Routine computes the numerical Laplace transformation of the orbital energy 
@@ -67,6 +67,10 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
 !   do_rmsd              (optional) compute an RMS error after the optimization
 !                           of the Laplace parameters
 !
+!   do_init              (optional) initialize Laplace parameters with pre-tabu-
+!                           lated values. Otherwise start with what is available
+!                           on xpnts and wghts
+!
 !
 ! Benjamin Helmich-Paris, summer 2015
 !
@@ -90,7 +94,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
 
 ! optional arguments:
 
- logical, intent(in), optional :: do_rmsd
+ logical, intent(in), optional :: do_rmsd, do_init
  integer, intent(in), optional :: mxiter, iprint
  real(8), intent(in), optional :: stepmx, tolrng, tolpar, delta, afact
 
@@ -99,7 +103,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
  real(8), intent(inout) :: xpnts(nlap), wghts(nlap)
 
 ! local scalars:
- logical :: do_rmsd0
+ logical :: do_rmsd0, do_init0
  integer :: iter, niter, nxpts, ilap, iprnt0, mxitr0
  real(8) :: rnge(2), bounds(2), elow, ehigh, ehomo, elumo, errmsd, &
             afct0, stpmx0, tlrng0, tlpar0, delt0
@@ -160,6 +164,12 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
   do_rmsd0 = .false.
  end if
 
+ if (present(do_init)) then
+  do_init0 = do_init
+ else
+  do_init0 = .true.
+ end if
+
  if (locdbg .or. iprnt0 .gt. 8) write(istdout,"(a)") "entered laplace_minimax .."
 
  ! print pre-amble
@@ -200,7 +210,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
  !--------------------------------------------------!
  ! start values for predefined boundaries from file 
  !--------------------------------------------------!
- call lap_init(xpnts2,wghts2,rnge,nlap)
+ if (do_init0) call lap_init(xpnts2,wghts2,rnge,nlap)
 
  if (locdbg .or. iprnt0 .gt. 8) then
   write(istdout,*) chrdbg,"initial max. error:",errbnd(1:2)

@@ -2,13 +2,13 @@
  interface 
   subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,&
   &                          istrv,iendv,mxiter,iprint,stepmx,tolrng,tolpar,&
-  &                          delta,afact,do_rmsd)
+  &                          delta,afact,do_rmsd,do_init)
  
    integer, intent(in) :: nlap, neig
    integer, intent(in) :: istro, istrv, iendo, iendv
    real(8), intent(in) :: eig(neig)
  
-   logical, intent(in), optional :: do_rmsd
+   logical, intent(in), optional :: do_rmsd, do_init
    integer, intent(in), optional :: mxiter, iprint
    real(8), intent(in), optional :: stepmx, tolrng, tolpar, delta, afact
  
