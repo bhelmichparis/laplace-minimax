@@ -208,10 +208,19 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
   write(istdout,*) chrdbg,"range:",rnge
  end if
 
- !--------------------------------------------------!
- ! start values for predefined boundaries from file 
- !--------------------------------------------------!
- if (do_init0) call lap_init(xpnts2,wghts2,rnge,nlap)
+ ! either start values for predefined boundaries from file 
+ if (do_init0) then
+  call lap_init(xpnts2,wghts2,rnge,nlap)
+
+ ! .. or use existing parameters in range [x_min; x_max]
+ else
+  do ilap = 1,nlap
+   xpnts2(1,ilap) = xpnts(ilap) * bounds(1)
+   xpnts2(2,ilap) = d0
+   wghts2(1,ilap) = wghts(ilap) * bounds(1)
+   wghts2(2,ilap) = d0
+  end do
+ end if
 
  if (locdbg .or. iprnt0 .gt. 8) then
   write(istdout,*) chrdbg,"initial max. error:",errbnd(1:2)
