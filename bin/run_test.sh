@@ -52,32 +52,35 @@ fi
 CRIT1=`$GREP "range or orbital energy denominator:\ *0.400E+01\ *0.800E+01" $log | wc -l`
 CRIT2=`$GREP "range or orbital energy denominator:\ *0.680E+01\ *0.920E+02" $log | wc -l`
 CRIT3=`$GREP "range or orbital energy denominator:\ *0.320E+00\ *0.920E+04" $log | wc -l`
-TEST[1]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3`
-CTRL[1]=3
+CRIT4=`$GREP "range or orbital energy denominator:\ *0.435E+02\ *0.464E+02" $log | wc -l`
+TEST[1]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
+CTRL[1]=4
 ERROR[1]="INCORRECT ORBITAL ENERGY DENOMINATOR RANGE NOT CORRECT"
 
 # max error:
 CRIT1=`$GREP "maximum absolute error of distribution:\ *0.183E-05" $log | wc -l`
 CRIT2=`$GREP "maximum absolute error of distribution:\ *0.754E-08" $log | wc -l`
 CRIT3=`$GREP "maximum absolute error of distribution:\ *0.589E-10" $log | wc -l`
-TEST[2]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3`
-CTRL[2]=3
+CRIT4=`$GREP "maximum absolute error of distribution:\ *0.169E-11" $log | wc -l`
+TEST[2]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
+CTRL[2]=4
 ERROR[2]="MAXIMUM ABSOLUTE ERROR NOT CORRECT"
 
 # RMSD error:
 CRIT1=`$GREP "RMSD error of distribution:\ *0.372E-07" $log | wc -l`
 CRIT2=`$GREP "RMSD error of distribution:\ *0.116E-09" $log | wc -l`
 CRIT3=`$GREP "RMSD error of distribution:\ *0.388E-10" $log | wc -l`
-TEST[3]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3`
-CTRL[3]=3
+CRIT4=`$GREP "RMSD error of distribution:\ *0.974E-14" $log | wc -l`
+TEST[3]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
+CTRL[3]=4
 ERROR[3]="RMSD ERROR NOT CORRECT"
 
 # Laplace points (1):
 CRIT1=`$GREP "1\ *0.0718733276\ *0.1867648544" $log | wc -l`
 CRIT2=`$GREP "2\ *0.4011592651\ *0.4897225836" $log | wc -l`
 CRIT3=`$GREP "3\ *1.1266216172\ *1.0404470994" $log | wc -l`
-TEST[4]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3`
-CTRL[4]=3
+TEST[4]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
+CTRL[4]=4
 ERROR[4]="1ST SET OF QUADRATURE POINTS NOT CORRECT"
 
 # Laplace points (2):
@@ -128,8 +131,17 @@ TEST[6]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4  \+ $CRIT5  \
 CTRL[6]=25
 ERROR[6]="3RD SET OF QUADRATURE POINTS NOT CORRECT"
 
+# Laplace points (4):
+CRIT1=`$GREP "1\ *0.0092540259\ *0.0239870689" $log | wc -l`
+CRIT2=`$GREP "2\ *0.0510695061\ *0.0614912141" $log | wc -l`
+CRIT3=`$GREP "3\ *0.1400400119\ *0.1247440969" $log | wc -l`
+TEST[7]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3`
+CTRL[7]=3
+ERROR[4]="4TH SET OF QUADRATURE POINTS NOT CORRECT"
+
+
 PASSED=1
-for i in 1 2 3 4 5 6
+for i in 1 2 3 4 5 6 7
 do
    if [ ${TEST[i]} -ne ${CTRL[i]} ]; then
      echo "${ERROR[i]} ( test = ${TEST[i]}; control = ${CTRL[i]} ); "
