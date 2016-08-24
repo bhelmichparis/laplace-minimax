@@ -13,11 +13,13 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
 ! The Newton-Maehly algorithm is used to find all extremum points. Please
 ! cite the following paper if you use the library:
 !
-! (1) A. Takatsuka et al., The Journal of Chemical Physics 129, 044112 (2008); 
-!      doi: 10.1063/1.2958921
+! (1) A. Takatsuka et al., 
+!      The Journal of Chemical Physics 129, 044112 (2008); 
+!       doi: 10.1063/1.2958921
 !
-! (2) B. Helmich-Paris and L. Visscher, Journal of Computational Physics ???, 
-!      ??? (2016); doi: 
+! (2) B. Helmich-Paris and L. Visscher,
+!      Journal of Computational Physics 321, 927 - 931 (2016);
+!       doi: 10.1016/j.jcp.2016.06.011
 !
 ! 
 !  variable             explanation
@@ -75,7 +77,6 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,ie
 ! Benjamin Helmich-Paris, summer 2015
 !
 !------------------------------------------------------------------------------!
-
 
  implicit none
 
