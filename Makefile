@@ -24,10 +24,14 @@ else
   ifeq ($(findstring ifort,$(FC)),ifort)
    FFLAGS+= -O3 -free -warn all -assume protect_parens -nogen-interfaces
   else
-   ifeq ($(findstring pgf95,$(FC)),pgf95)
+   ifeq ($(findstring pgf90,$(FC)),pgf90)
     FFLAGS+= -O4 -fast -fastsse -Mfree -Mlarge_arrays -Mcache_align -Msmart -Msmartalloc -Minform=inform
    else
-    $(error Unknown Fortran compiler. Set environment variable FC to either: ifort, gfortran, or pgf95!)
+    ifeq ($(findstring pgf95,$(FC)),pgf95)
+     FFLAGS+= -O4 -fast -fastsse -Mfree -Mlarge_arrays -Mcache_align -Msmart -Msmartalloc -Minform=inform
+    else
+     $(error Unknown Fortran compiler. Set environment variable FC to either: ifort, gfortran, or pgf95!)
+    endif
    endif
   endif
  endif
