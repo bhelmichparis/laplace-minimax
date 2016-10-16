@@ -30,7 +30,7 @@ else
     ifeq ($(findstring pgf95,$(FC)),pgf95)
      FFLAGS+= -O4 -fast -fastsse -Mfree -Mlarge_arrays -Mcache_align -Msmart -Msmartalloc -Minform=inform
     else
-     $(error Unknown Fortran compiler. Set environment variable FC to either: ifort, gfortran, or pgf95!)
+     $(error Unknown Fortran compiler. Set environment variable FC to either: ifort, gfortran, pgf90, or pgf95!)
     endif
    endif
   endif
