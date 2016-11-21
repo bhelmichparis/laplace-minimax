@@ -1,11 +1,11 @@
 !==============================================================================!
  interface 
-  subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
+  subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   &                          mxiter,iprint,stepmx,tolrng,tolpar,delta,afact,&
   &                          do_rmsd,do_init)
  
    integer, intent(in) :: nlap
-   real(8), intent(in) :: elomo, ehomo, elumo, ehumo
+   real(8), intent(in) :: ymin, ymax
  
    logical, intent(in), optional :: do_rmsd, do_init
    integer, intent(in), optional :: mxiter, iprint

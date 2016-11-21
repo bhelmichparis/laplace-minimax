@@ -1,5 +1,5 @@
 !==============================================================================!
-subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
+subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
                            mxiter,iprint,stepmx,tolrng,tolpar,delta,afact,&
                            do_rmsd,do_init)
 !------------------------------------------------------------------------------!
@@ -31,15 +31,11 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
 !   wghts                (output) double presicion array with 
 !                          Laplace weights   (w_k)
 !
+!   ymin                 (input) lower bound of orbital energy denominator
+!
+!   ymax                 (input) upper bound of orbital energy denominator
+!
 !   nlap                 (input)  number of quadrature (Laplace) points
-!
-!   elomo                (input)  orbital energies of lowest occupied MO
-!
-!   ehomo                (input)  orbital energies of highest occupied MO
-!
-!   elumo                (input)  orbital energies of lowest unoccupied MO
-!
-!   ehumo                (input)  orbital energies of highest unoccupied MO
 !
 !   mxiter               (optional) maximum number of iterations. Used for each
 !                           of the iterative prodecures (Remez + Newton(-Maehly))
@@ -87,7 +83,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
  integer, intent(in) :: nlap
 
 ! input:
- real(8), intent(in) :: elomo, ehumo, ehomo, elumo
+ real(8), intent(in) :: ymin, ymax
 
 ! optional arguments:
 
@@ -102,7 +98,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
 ! local scalars:
  logical :: do_rmsd0, do_init0
  integer :: iter, niter, nxpts, ilap, iprnt0, mxitr0
- real(8) :: rnge(2), bounds(2), errmsd, &
+ real(8) :: rnge(2), errmsd, &
             afct0, stpmx0, tlrng0, tlpar0, delt0
 
 ! local arrays:
@@ -180,27 +176,17 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
  errbnd(1) = -10.**(-nlap)
  errbnd(2) = d0
 
- ! bounds of numerical quadrature [x_min,x_max]
-! elomo = eig(istro)
-! ehomo = eig(iendo)
-! elumo = eig(istrv)
-! ehumo = eig(iendv)
-
- bounds(1) = d2*(elumo-ehomo)
- bounds(2) = d2*(ehumo-elomo )
-
  ! numerical quadrature is done within bounds [1,R]
  rnge(1) = d1
- rnge(2) = bounds(2) / bounds(1)
+ rnge(2) = ymax / ymin
 
  ! print range
  if (iprnt0 .gt. 0) then
-  write(istdout,'(a,2(1x,e12.3))')     '  range or orbital energy denominator:',bounds(1:2)
+  write(istdout,'(a,2(1x,e12.3))')     '  range or orbital energy denominator:',ymin,ymax
  end if
  
  if (locdbg .or. iprnt0.gt.4) then
-  write(istdout,*) chrdbg,"elomo,ehomo,elumo,ehumo",elomo,ehomo,elumo,ehumo
-  write(istdout,*) chrdbg,"bounds:",bounds
+  write(istdout,*) chrdbg,"bounds:",ymin,ymax
   write(istdout,*) chrdbg,"range:",rnge
  end if
 
@@ -211,9 +197,9 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
  ! .. or use existing parameters in range [x_min; x_max]
  else
   do ilap = 1,nlap
-   xpnts2(1,ilap) = xpnts(ilap) * bounds(1)
+   xpnts2(1,ilap) = xpnts(ilap) * ymin
    xpnts2(2,ilap) = d0
-   wghts2(1,ilap) = wghts(ilap) * bounds(1)
+   wghts2(1,ilap) = wghts(ilap) * ymin
    wghts2(2,ilap) = d0
   end do
  end if
@@ -258,8 +244,8 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,elomo,ehomo,elumo,ehumo,&
 
  ! transform back to orignal range [x_min;x_max]
  do ilap = 1,nlap
-  call dd128_div_doub_assign(xpnts2(1,ilap),bounds(1))
-  call dd128_div_doub_assign(wghts2(1,ilap),bounds(1))
+  call dd128_div_doub_assign(xpnts2(1,ilap),ymin)
+  call dd128_div_doub_assign(wghts2(1,ilap),ymin)
  end do
 
  ! compute the RMSD error
