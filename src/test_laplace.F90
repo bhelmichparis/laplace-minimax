@@ -13,17 +13,12 @@ program test_laplace
 #include "consts.h"
 #include "laplace_minimax.h"
 
-! parameter:
- integer, parameter :: neig = 4
-
 ! local scalars:
- integer :: nlap, istro, iendo, istrv, iendv
+ integer :: nlap
  real(8) :: errmax
 
 ! local arrays:
- real(8) :: xpnts(mxlap), wghts(mxlap), eig(neig)
-
- istro = 1; iendo = 2; istrv = 3; iendv = 4
+ real(8) :: xpnts(mxlap), wghts(mxlap), eig(4)
 
 ! ------
 ! test 1
@@ -31,7 +26,7 @@ program test_laplace
  nlap = 3
  eig(1) = -2.d0; eig(2) = -1.d0; eig(3) = +1.d0; eig(4) = +2.d0
 
- call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig(1),eig(2),eig(3),eig(4),&
                       iprint=1,do_rmsd=.true.)
 
 ! ------
@@ -40,7 +35,7 @@ program test_laplace
  nlap = 8
  eig(1) = -23.d0; eig(2) = -1.7d0; eig(3) = +1.7d0; eig(4) = +23.d0
 
- call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig(1),eig(2),eig(3),eig(4),&
                       iprint=1,do_rmsd=.true.)
 
 ! ------
@@ -49,7 +44,7 @@ program test_laplace
  nlap = 25
  eig(1) = -2.3d3; eig(2) = -0.8d-1; eig(3) = +0.8d-1; eig(4) = +2.3d3
 
- call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig(1),eig(2),eig(3),eig(4),&
                       iprint=1,do_rmsd=.true.)
 
 ! ------
@@ -66,7 +61,7 @@ program test_laplace
  xpnts(2) = 0.051107515326D0; wghts(2) = 0.061536647229D0
  xpnts(3) = 0.140142919490D0; wghts(3) = 0.124833915648D0
 
- call laplace_minimax(errmax,xpnts,wghts,nlap,eig,neig,istro,iendo,istrv,iendv,&
+ call laplace_minimax(errmax,xpnts,wghts,nlap,eig(1),eig(2),eig(3),eig(4),&
                       iprint=1,mxiter=100,do_rmsd=.true.,do_init=.false.)
 
 end program test_laplace

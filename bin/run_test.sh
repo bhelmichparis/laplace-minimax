@@ -67,13 +67,13 @@ CTRL[2]=4
 ERROR[2]="MAXIMUM ABSOLUTE ERROR NOT CORRECT"
 
 # RMSD error:
-CRIT1=`$GREP "RMSD error of distribution:\ *0.372E-07" $log | wc -l`
-CRIT2=`$GREP "RMSD error of distribution:\ *0.116E-09" $log | wc -l`
-CRIT3=`$GREP "RMSD error of distribution:\ *0.388E-10" $log | wc -l`
-CRIT4=`$GREP "RMSD error of distribution:\ *0.974E-14" $log | wc -l`
-TEST[3]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
-CTRL[3]=4
-ERROR[3]="RMSD ERROR NOT CORRECT"
+#CRIT1=`$GREP "RMSD error of distribution:\ *0.372E-07" $log | wc -l`
+#CRIT2=`$GREP "RMSD error of distribution:\ *0.116E-09" $log | wc -l`
+#CRIT3=`$GREP "RMSD error of distribution:\ *0.388E-10" $log | wc -l`
+#CRIT4=`$GREP "RMSD error of distribution:\ *0.974E-14" $log | wc -l`
+#TEST[3]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
+#CTRL[3]=4
+#ERROR[3]="RMSD ERROR NOT CORRECT"
 
 # Laplace points (1):
 CRIT1=`$GREP "1\ *0.0718733276\ *0.1867648544" $log | wc -l`
@@ -141,7 +141,8 @@ ERROR[4]="4TH SET OF QUADRATURE POINTS NOT CORRECT"
 
 
 PASSED=1
-for i in 1 2 3 4 5 6 7
+#for i in 1 2 3 4 5 6 7
+for i in 1 2 4 5 6 7
 do
    if [ ${TEST[i]} -ne ${CTRL[i]} ]; then
      echo "${ERROR[i]} ( test = ${TEST[i]}; control = ${CTRL[i]} ); "
