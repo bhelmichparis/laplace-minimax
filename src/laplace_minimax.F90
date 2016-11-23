@@ -67,6 +67,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 !                           on xpnts and wghts
 !
 !
+!
 ! Benjamin Helmich-Paris, summer 2015
 !
 !------------------------------------------------------------------------------!
