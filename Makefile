@@ -45,11 +45,11 @@ SDIR=src
 LDIR=lib
 BDIR=bin
 
-_DEPS = consts.h  init.h
+_DEPS = consts.h init.h error.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = dd128_arithmetics.o dd128_linalg.o \
-       lap_init.o lap_paraopt.o lap_maehly.o lap_rmsd.o laplace_minimax.o
+       lap_init.o lap_paraopt.o lap_maehly.o lap_rmsd.o lap_numlap.o laplace_minimax.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.F90  $(DEPS)
