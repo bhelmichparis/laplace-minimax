@@ -209,7 +209,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 
  ! either start values for predefined boundaries from file 
  if (do_init0) then
-  call lap_init(xpnts2,wghts2,rnge,nlap)
+  call lap_init(errbnd,xpnts2,wghts2,rnge,nlap)
  ! .. or use existing parameters in range [x_min; x_max]
  else
   do ilap = 1,nlap
