@@ -99,151 +99,152 @@
       integer, parameter ::  nlap_init_1E12 = 5 
       integer, parameter ::  nlap_init_2E12 = 3 
       integer, parameter ::  nlap_init_3E12 = 2 
+      integer, parameter ::  nlap_init_inft = 51 
 
 !----------------------------------------------------------------------!
 !
 !     number of Laplace point for each interval
 !
 !----------------------------------------------------------------------!
-      integer, parameter ::  ilap_init_2E00(nlap_init_2E00) = (/                    &
+      integer, parameter ::  ilap_init_2E00(nlap_init_2E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_3E00(nlap_init_3E00) = (/                    &
+      integer, parameter ::  ilap_init_3E00(nlap_init_3E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_4E00(nlap_init_4E00) = (/                    &
+      integer, parameter ::  ilap_init_4E00(nlap_init_4E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_5E00(nlap_init_5E00) = (/                    &
+      integer, parameter ::  ilap_init_5E00(nlap_init_5E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_6E00(nlap_init_6E00) = (/                    &
+      integer, parameter ::  ilap_init_6E00(nlap_init_6E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_7E00(nlap_init_7E00) = (/                    &
+      integer, parameter ::  ilap_init_7E00(nlap_init_7E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_8E00(nlap_init_8E00) = (/                    &
+      integer, parameter ::  ilap_init_8E00(nlap_init_8E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_9E00(nlap_init_9E00) = (/                    &
+      integer, parameter ::  ilap_init_9E00(nlap_init_9E00) = (/        &
      & 1, 2, 3, 4, 5, 6, 7 /)                             
                                                           
-      integer, parameter ::  ilap_init_1E01(nlap_init_1E01) = (/                    &
-     & 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,
+      integer, parameter ::  ilap_init_1E01(nlap_init_1E01) = (/        &
+     & 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,                     &
      &16 /)
 
-      integer, parameter ::  ilap_init_2E01(nlap_init_2E01) = (/                    &
-     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,
+      integer, parameter ::  ilap_init_2E01(nlap_init_2E01) = (/        &
+     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,                     &
      &17 /)
 
-      integer, parameter ::  ilap_init_3E01(nlap_init_3E01) = (/                    &
-     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,
+      integer, parameter ::  ilap_init_3E01(nlap_init_3E01) = (/        &
+     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,                     &
      &17 /)
 
-      integer, parameter ::  ilap_init_4E01(nlap_init_4E01) = (/                    &
-     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,
+      integer, parameter ::  ilap_init_4E01(nlap_init_4E01) = (/        &
+     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,                     &
      &17,18 /)
 
-      integer, parameter ::  ilap_init_5E01(nlap_init_5E01) = (/                    &
-     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,
+      integer, parameter ::  ilap_init_5E01(nlap_init_5E01) = (/        &
+     & 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,                     &
      &17,18,19 /)
 
-      integer, parameter ::  ilap_init_6E01(nlap_init_6E01) = (/                    &
-     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
+      integer, parameter ::  ilap_init_6E01(nlap_init_6E01) = (/        &
+     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,                     &
      &18,19,20 /)
 
-      integer, parameter ::  ilap_init_7E01(nlap_init_7E01) = (/                    &
-     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
+      integer, parameter ::  ilap_init_7E01(nlap_init_7E01) = (/        &
+     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,                     &
      &18,19,20 /)
 
-      integer, parameter ::  ilap_init_8E01(nlap_init_8E01) = (/                    &
-     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
+      integer, parameter ::  ilap_init_8E01(nlap_init_8E01) = (/        &
+     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,                     &
      &18,19,20 /)
 
-      integer, parameter ::  ilap_init_9E01(nlap_init_9E01) = (/                    &
-     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
+      integer, parameter ::  ilap_init_9E01(nlap_init_9E01) = (/        &
+     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,                     &
      &18,19,20,21 /)
 
-      integer, parameter ::  ilap_init_1E02(nlap_init_1E02) = (/                    &
-     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
+      integer, parameter ::  ilap_init_1E02(nlap_init_1E02) = (/        &
+     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,                     &
      &18,19,20,21,22 /)
 
-      integer, parameter ::  ilap_init_2E02(nlap_init_2E02) = (/                    &
-     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
+      integer, parameter ::  ilap_init_2E02(nlap_init_2E02) = (/        &
+     & 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,                     &
      &18,19,20,21,22,23,24,25 /)
 
-      integer, parameter ::  ilap_init_3E02(nlap_init_3E02) = (/                    &
-     & 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,
+      integer, parameter ::  ilap_init_3E02(nlap_init_3E02) = (/        &
+     & 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,                     &
      &19,20,21,22,23,24,25 /)
 
-      integer, parameter ::  ilap_init_4E02(nlap_init_4E02) = (/                    &
-     & 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,
+      integer, parameter ::  ilap_init_4E02(nlap_init_4E02) = (/        &
+     & 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,                     &
      &19,20,21,22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_5E02(nlap_init_5E02) = (/                    &
-     & 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,&
+      integer, parameter ::  ilap_init_5E02(nlap_init_5E02) = (/        &
+     & 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,                     &
      &19,20,21,22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_6E02(nlap_init_6E02) = (/                    &
+      integer, parameter ::  ilap_init_6E02(nlap_init_6E02) = (/        &
      & 5, 6, 7,15,16,17,18,19,20,21,26 /)
 
-      integer, parameter ::  ilap_init_7E02(nlap_init_7E02) = (/                    &
-     & 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,&
+      integer, parameter ::  ilap_init_7E02(nlap_init_7E02) = (/        &
+     & 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,                     &
      &20,21,22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_8E02(nlap_init_8E02) = (/                    &
+      integer, parameter ::  ilap_init_8E02(nlap_init_8E02) = (/        &
      & 5, 6, 7,15,16,17,18,19,20,21,26 /)
 
-      integer, parameter ::  ilap_init_9E02(nlap_init_9E02) = (/                    &
+      integer, parameter ::  ilap_init_9E02(nlap_init_9E02) = (/        &
      & 5, 6, 7,15,16,17,18,19,20,21,26 /)
 
-      integer, parameter ::  ilap_init_1E03(nlap_init_1E03) = (/                    &
-     & 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,&
+      integer, parameter ::  ilap_init_1E03(nlap_init_1E03) = (/        &
+     & 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,                     &
      &20,21,22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_2E03(nlap_init_2E03) = (/                    &
-     & 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,&
+      integer, parameter ::  ilap_init_2E03(nlap_init_2E03) = (/        &
+     & 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,                     &
      &20,21,22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_3E03(nlap_init_3E03) = (/                    &
-     & 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,&
+      integer, parameter ::  ilap_init_3E03(nlap_init_3E03) = (/        &
+     & 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,                     &
      &21,22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_4E03(nlap_init_4E03) = (/                    &
-     & 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,&
+      integer, parameter ::  ilap_init_4E03(nlap_init_4E03) = (/        &
+     & 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,                     &
      &22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_5E03(nlap_init_5E03) = (/                    &
-     & 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,&
+      integer, parameter ::  ilap_init_5E03(nlap_init_5E03) = (/        &
+     & 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,                     &
      &22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_6E03(nlap_init_6E03) = (/                    &
+      integer, parameter ::  ilap_init_6E03(nlap_init_6E03) = (/        &
      & 7,15,16,17,18,19,20,21,25,26 /)
 
-      integer, parameter ::  ilap_init_7E03(nlap_init_7E03) = (/                    &
-     & 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,&
+      integer, parameter ::  ilap_init_7E03(nlap_init_7E03) = (/        &
+     & 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,                     &
      &22,23,24,25,26 /)
 
-      integer, parameter ::  ilap_init_8E03(nlap_init_8E03) = (/                    &
+      integer, parameter ::  ilap_init_8E03(nlap_init_8E03) = (/        &
      &15,16,17,18,19,20,21,25,26 /)
 
-      integer, parameter ::  ilap_init_9E03(nlap_init_9E03) = (/                    &
+      integer, parameter ::  ilap_init_9E03(nlap_init_9E03) = (/        &
      &15,16,17,18,19,20,21,25,26 /)
 
-      integer, parameter ::  ilap_init_1E04(nlap_init_1E04) = (/                    &
-     & 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,&
+      integer, parameter ::  ilap_init_1E04(nlap_init_1E04) = (/        &
+     & 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,                     &
      &23,24,25,26,27 /)
 
-      integer, parameter ::  ilap_init_2E04(nlap_init_2E04) = (/                    &
-     & 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,&
+      integer, parameter ::  ilap_init_2E04(nlap_init_2E04) = (/        &
+     & 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,                     &
      &23,24,25,26,27 /)
 
-      integer, parameter ::  ilap_init_3E04(nlap_init_3E04) = (/                    &
+      integer, parameter ::  ilap_init_3E04(nlap_init_3E04) = (/        &
      & 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,                     &
      &24,26,27 /)
 
-      integer, parameter ::  ilap_init_4E04(nlap_init_4E04) = (/                    &
+      integer, parameter ::  ilap_init_4E04(nlap_init_4E04) = (/        &
      &15,16,17,18,19,20,21,22,23,24,26,27 /)
 
       integer, parameter ::  ilap_init_5E04(nlap_init_5E04) = (/        &
@@ -384,7 +385,7 @@
       integer, parameter ::  ilap_init_3E10(nlap_init_3E10) = (/        &
      &38,41,50 /)
 
-      integer, parameter ::  ilap_init_4E10(nlap_init_3E10) = (/        &
+      integer, parameter ::  ilap_init_4E10(nlap_init_4E10) = (/        &
      &39,50 /)
 
       integer, parameter ::  ilap_init_5E10(nlap_init_5E10) = (/        &
@@ -394,7 +395,7 @@
      &41,50 /)
 
       integer, parameter ::  ilap_init_1E11(nlap_init_1E11) = (/        &
-     &42,43,44,45,46,47,48,49,50,51,52,53 /)nlap_init_
+     &42,43,44,45,46,47,48,49,50,51,52,53 /)
 
       integer, parameter ::  ilap_init_2E11(nlap_init_2E11) = (/        &
      &43,44,46,48,49,50,51,52,53 /)
@@ -419,6 +420,12 @@
 
       integer, parameter ::  ilap_init_3E12(nlap_init_3E12) = (/        &
      &52,53 /)
+
+      integer, parameter ::  ilap_init_inft(nlap_init_inft) = (/        &
+     & 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,                     &
+     &16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,                     &
+     &31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,                     &
+     &46,47,48,49,50,51 /)
 
 !----------------------------------------------------------------------!
 !
@@ -446,7 +453,7 @@
      &6.143D-07, 2.976D-08, 1.424D-09 /)
       
       real(8), parameter :: error_init_7E00(nlap_init_7E00) = (/        & 
-     &8.288D-02, 5.811D-03, 3.553D-04, 2.079D-05,                       & 
+     &8.288D-02, 5.811D-03, 3.553D-04, 2.079D-05,                       &
      &1.185D-06, 6.643D-08, 3.677D-09 /)
       
       real(8), parameter :: error_init_8E00(nlap_init_8E00) = (/        & 
@@ -709,10 +716,10 @@
      &1.423D-09, 3.719D-10, 1.899D-10 /)
       
       real(8), parameter :: error_init_5E05(nlap_init_5E05) = (/        &
-     &1.092D-06, 5.797D-07, 3.048D-07, 1.597D-07,
-     &8.339D-08, 4.346D-08, 2.260D-08, 1.174D-08,
-     &6.089D-09, 3.154D-09, 1.632D-09, 8.439D-10,
-     &4.359D-10, 2.250D-10
+     &1.092D-06, 5.797D-07, 3.048D-07, 1.597D-07,                       &
+     &8.339D-08, 4.346D-08, 2.260D-08, 1.174D-08,                       &
+     &6.089D-09, 3.154D-09, 1.632D-09, 8.439D-10,                       &
+     &4.359D-10, 2.250D-10 /)
       
       real(8), parameter :: error_init_6E05(nlap_init_6E05) = (/        &
      &2.567D-10 /)
@@ -755,8 +762,7 @@
      &1.460D-09, 8.280D-10 /)
       
       real(8), parameter :: error_init_6E06(nlap_init_6E06) = (/        &
-     &8.916D-10
-      /)
+     &8.916D-10 /)
       
       real(8), parameter :: error_init_7E06(nlap_init_7E06) = (/        &
      &1.289D-07, 7.706D-08, 4.495D-08, 2.605D-08,                       &
@@ -798,7 +804,7 @@
      &1.159D-09 /)
       
       real(8), parameter :: error_init_2E08(nlap_init_2E08) = (/        &
-     &4.898D-09, 3.179D-09, 2.028D-09, 1.284D-09,
+     &4.898D-09, 3.179D-09, 2.028D-09, 1.284D-09,                       &
      &4.429D-14 /)
       
       real(8), parameter :: error_init_3E08(nlap_init_3E08) = (/        &
@@ -871,14 +877,14 @@
      &1.819D-13 /)
       
       real(8), parameter :: error_init_3E11(nlap_init_3E11) = (/        &
-     &2.919D-12, 1.074D-12, 7.639D-13, 5.430D-13,
+     &2.919D-12, 1.074D-12, 7.639D-13, 5.430D-13,                       &
      &3.857D-13 /)
       
       real(8), parameter :: error_init_4E11(nlap_init_4E11) = (/        &
      &2.113D-12, 5.594D-13, 3.989D-13, 2.025D-13 /)
       
       real(8), parameter :: error_init_5E11(nlap_init_5E11) = (/        &
-     &1.534D-12, 7.969D-13, 5.708D-13, 4.084D-13,
+     &1.534D-12, 7.969D-13, 5.708D-13, 4.084D-13,                       &
      &2.919D-13, 2.086D-13 /)
       
       real(8), parameter :: error_init_7E11(nlap_init_7E11) = (/        &
@@ -894,5 +900,17 @@
       real(8), parameter :: error_init_3E12(nlap_init_3E12) = (/        &
      &3.251D-13, 2.405D-13 /)
       
-      real(8), parameter :: error_init_4E12(nlap_init_4E12) = (/        &
-     &2.405D-13 /)
+      real(8), parameter :: error_init_inft(nlap_init_inft) = (/        &
+     &8.556407558D-02,1.784984402D-02,5.051623329D-03,1.700257409D-03,  &
+     &6.428132177D-04,2.646094657D-04,1.163345309D-04,5.392467586D-05,  &   
+     &2.611349262D-05,1.312192339D-05,6.806654744D-06,3.629990787D-06,  &
+     &1.983780556D-06,1.107997444D-06,6.310717659D-07,3.658514896D-07,  &
+     &2.155406905D-07,1.288728616D-07,7.810694747D-08,4.793658344D-08,  &
+     &2.976463658D-08,1.868283243D-08,1.184632475D-08,7.583094318D-09,  &
+     &4.897586383D-09,3.189817902D-09,2.094083296D-09,1.385098807D-09,  &
+     &9.226923049D-10,6.188242106D-10,4.177046642D-10,2.836818690D-10,  &
+     &1.937906483D-10,1.331253085D-10,9.194133568D-11,6.382429591D-11,  &
+     &4.452420484D-11,3.120733581D-11,2.197295677D-11,1.553880806D-11,  &
+     &1.103505368D-11,7.868531456D-12,5.632662739D-12,4.047404176D-12,  &
+     &2.918954737D-12,2.112585877D-12,1.534222510D-12,1.117899610D-12,  &
+     &8.171723389D-13,5.992104599D-13,4.407166906D-13 /)
