@@ -99,6 +99,7 @@
       integer, parameter ::  nlap_init_1E12 = 5 
       integer, parameter ::  nlap_init_2E12 = 3 
       integer, parameter ::  nlap_init_3E12 = 2 
+      integer, parameter ::  nlap_init_4E12 = 1 
       integer, parameter ::  nlap_init_inft = 51 
 
 !----------------------------------------------------------------------!
@@ -420,6 +421,9 @@
 
       integer, parameter ::  ilap_init_3E12(nlap_init_3E12) = (/        &
      &52,53 /)
+
+      integer, parameter ::  ilap_init_4E12(nlap_init_4E12) = (/        &
+     &53 /)
 
       integer, parameter ::  ilap_init_inft(nlap_init_inft) = (/        &
      & 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,                     &
@@ -899,6 +903,9 @@
       
       real(8), parameter :: error_init_3E12(nlap_init_3E12) = (/        &
      &3.251D-13, 2.405D-13 /)
+      
+      real(8), parameter :: error_init_4E12(nlap_init_4E12) = (/        &
+     &2.405D-13 /)
       
       real(8), parameter :: error_init_inft(nlap_init_inft) = (/        &
      &8.556407558D-02,1.784984402D-02,5.051623329D-03,1.700257409D-03,  &

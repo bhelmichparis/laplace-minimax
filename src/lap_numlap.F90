@@ -230,6 +230,8 @@ subroutine lap_numlap(nlap,tolerr,rnge)
   nlap = lap_getnlap(tolerr,error_init_2E12,ilap_init_2E12,nlap_init_2E12)
  else if (rlen.gt.2.D12 .and. rlen.le.3.D12) then
   nlap = lap_getnlap(tolerr,error_init_3E12,ilap_init_3E12,nlap_init_3E12)
+ else if (rlen.gt.3.D12 .and. rlen.le.4.D12) then
+  nlap = lap_getnlap(tolerr,error_init_4E12,ilap_init_4E12,nlap_init_4E12)
  else
   nlap = lap_getnlap(tolerr,error_init_inft,ilap_init_inft,nlap_init_inft)
  end if
