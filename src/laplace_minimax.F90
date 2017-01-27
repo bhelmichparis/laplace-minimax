@@ -1,7 +1,7 @@
 !==============================================================================!
 subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
-                           mxiter,iprint,stepmx,tolrng,tolpar,delta,afact,&
-                           do_rmsd,do_init)
+                           mxiter,iprint,stepmx,tolrng,tolpar,tolerr,&
+                           delta,afact,do_rmsd,do_init,do_nlap)
 !------------------------------------------------------------------------------!
 !
 ! Routine computes the numerical Laplace transformation of the orbital energy 
@@ -35,7 +35,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 !
 !   ymax                 (input) upper bound of orbital energy denominator
 !
-!   nlap                 (input)  number of quadrature (Laplace) points
+!   nlap                 (in/output)  number of quadrature (Laplace) points
 !
 !   mxiter               (optional) maximum number of iterations. Used for each
 !                           of the iterative prodecures (Remez + Newton(-Maehly))
@@ -52,6 +52,9 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 !                           that computes the Laplace parameters at each extremum
 !                           point
 !
+!   tolerr               (optional) tolerance threshold for the maximum quadrature
+!                           error obtained by the minimax algorithm
+!
 !   delta                (optional) shift parameter for initializating the next
 !                           extremum point to be determined by Newton-Maehly
 !
@@ -65,6 +68,9 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 !   do_init              (optional) initialize Laplace parameters with pre-tabu-
 !                           lated values. Otherwise start with what is available
 !                           on xpnts and wghts
+!
+!   do_nlap              (optional) obtain the number of quadrature points by
+!                           comparing tabulated errors to threshold
 !
 !
 !
@@ -80,27 +86,25 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
  logical, parameter :: locdbg = .false.
  character(len=*), parameter :: chrdbg = 'laplace_minimax>'
  
-! dimensions:
- integer, intent(in) :: nlap
-
 ! input:
  real(8), intent(in) :: ymin, ymax
 
 ! optional arguments:
-
- logical, intent(in), optional :: do_rmsd, do_init
+ logical, intent(in), optional :: do_rmsd, do_init, do_nlap
  integer, intent(in), optional :: mxiter, iprint
- real(8), intent(in), optional :: stepmx, tolrng, tolpar, delta, afact
+ real(8), intent(in), optional :: stepmx, tolrng, tolpar, delta, afact, tolerr
+
+! in/output:
+ integer, intent(inout) :: nlap
+ real(8), intent(inout) :: xpnts(*), wghts(*)
 
 !output:
- real(8), intent(inout) :: errmax
- real(8), intent(inout) :: xpnts(nlap), wghts(nlap)
+ real(8), intent(out) :: errmax
 
 ! local scalars:
- logical :: do_rmsd0, do_init0
+ logical :: do_rmsd0, do_init0, do_nlap0
  integer :: iter, niter, nxpts, ilap, iprnt0, mxitr0
- real(8) :: rnge(2), errmsd, &
-            afct0, stpmx0, tlrng0, tlpar0, delt0
+ real(8) :: rnge(2), errmsd, afct0, stpmx0, delt0, tlrng0, tlpar0, tlerr0
 
 ! local arrays:
  integer :: ipiv(2*mxlap+1)
@@ -164,37 +168,48 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   do_init0 = .true.
  end if
 
- if (locdbg .or. iprnt0 .gt. 8) write(istdout,"(a)") "entered laplace_minimax .."
+ if (present(do_nlap)) then
+  do_nlap0 = do_nlap
+  if (do_nlap .and. (.not.(present(tolerr)))) then
+   write(istdout,"(/a/)") "To determine the number quadrature points, we need accuracy threshold."
+   stop "Bye bye !"
+  end if
+  if (do_nlap0) then
+   tlerr0 = tolerr
+  else
+   tlerr0 = -9.D+99
+  end if
+ else
+  do_nlap0 = .false.
+ end if
+
+ if (locdbg .or. (iand(iprnt0,8).eq.8)) write(istdout,"(a)") "entered laplace_minimax .."
 
  ! print pre-amble
- if (iprnt0.gt.0) then
+ if (iand(iprnt0,1).eq.1) then
   write(istdout,'(//,a,//)')             '     Numerical    L A P L A C E    quadrature'
  end if
 
- nxpts  = 2*nlap+1
-
- ! initialize maximum error
- errbnd(1) = -10.**(-nlap)
- errbnd(2) = d0
-
+ ! print range
+ if (iand(iprnt0,1).eq.1) then
+  write(istdout,'(a,2(1x,e12.3))')     '  range or orbital energy denominator:',ymin,ymax
+ end if
+ 
  ! numerical quadrature is done within bounds [1,R]
  rnge(1) = d1
  rnge(2) = ymax / ymin
 
- ! print range
- if (iprnt0 .gt. 0) then
-  write(istdout,'(a,2(1x,e12.3))')     '  range or orbital energy denominator:',ymin,ymax
+ if (do_nlap0) then
+  call lap_numlap(errbnd(1),nlap,tlerr0,rnge)
+ else
+  ! initialize maximum error
+  errbnd(1) = -10.**(-nlap)
  end if
- 
- if (locdbg .or. iprnt0.gt.4) then
-  write(istdout,*) chrdbg,"bounds:",ymin,ymax
-  write(istdout,*) chrdbg,"range:",rnge
- end if
+ errbnd(2) = d0
 
  ! either start values for predefined boundaries from file 
  if (do_init0) then
   call lap_init(xpnts2,wghts2,rnge,nlap)
-
  ! .. or use existing parameters in range [x_min; x_max]
  else
   do ilap = 1,nlap
@@ -205,7 +220,14 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   end do
  end if
 
- if (locdbg .or. iprnt0 .gt. 8) then
+ ! number of extremum points
+ nxpts  = 2*nlap+1
+
+ if (locdbg .or. (iand(iprnt0,2).eq.2)) then
+  write(istdout,*) chrdbg,"range:",rnge
+ end if
+
+ if (locdbg .or. (iand(iprnt0,4).eq.4)) then
   write(istdout,*) chrdbg,"initial max. error:",errbnd(1:2)
   write(istdout,*) chrdbg,"initial exponents:"
   write(istdout,"(2(E55.40,1x))") xpnts2(1:2,1:nlap)
@@ -219,6 +241,11 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   write(istdout,*) chrdbg,"stpmx0:",stpmx0
  end if
 
+ if (iand(iprnt0,8).eq.8) then
+  write(istdout,"(/a)") "----------------------"
+  write(istdout,"(a)")  "  # MACRO     # MICRO "
+  write(istdout,"(a)")  "----------------------"
+ end if
 
  do iter = 1, mxitr0
 
@@ -238,6 +265,9 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
                    ipiv,jaco,func,xold,xnew,delx,grad,&
                    xpts,nxpts,mxitr0,tlpar0,stpmx0,afct0,&
                    nlap,nxpts)
+
+  ! report number of iterations
+  if (iand(iprnt0,8).eq.8) write(istdout,"(2(1x,i5))") iter,niter
 
   if (niter.eq. 1) exit
 
@@ -266,7 +296,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
  errmax = errbnd(1)
 
  ! print output
- if (iprnt0 .gt. 0) then
+ if (iand(iprnt0,1).eq.1) then
   write(istdout,'(a,2(1x,e12.3))')     '  maximum absolute error of distribution:',abs(errbnd(1))
   if (do_rmsd0) &
    write(istdout,'(a,2(1x,e12.3))')     '  RMSD error of distribution:            ',errmsd
@@ -279,7 +309,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   call flush(istdout)
  end if
 
- if (locdbg .or. iprnt0 .gt. 8) write(istdout,"(a)") "left laplace_minimax ..."
+ if (locdbg .or. (iand(iprnt0,4).eq.4)) write(istdout,"(a)") "left laplace_minimax ..."
 
 end subroutine laplace_minimax
 !==============================================================================!

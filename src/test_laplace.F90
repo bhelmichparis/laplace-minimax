@@ -30,7 +30,7 @@ program test_laplace
  ymax = 2.d0*(eig(4)-eig(1))
 
  call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
-                      iprint=1,do_rmsd=.true.)
+                      iprint=11,do_rmsd=.true.)
 
 ! ------
 ! test 2
@@ -42,7 +42,7 @@ program test_laplace
  ymax = 2.d0*(eig(4)-eig(1))
 
  call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
-                      iprint=1,do_rmsd=.true.)
+                      iprint=11,do_rmsd=.true.)
 
 ! ------
 ! test 3
@@ -54,7 +54,7 @@ program test_laplace
  ymax = 2.d0*(eig(4)-eig(1))
 
  call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
-                      iprint=1,do_rmsd=.true.)
+                      iprint=11,do_rmsd=.true.)
 
 ! ------
 ! test 4
@@ -74,7 +74,18 @@ program test_laplace
  ymax = 2.d0*(eig(4)-eig(1))
 
  call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
-                      iprint=1,mxiter=100,do_rmsd=.true.,do_init=.false.)
+                      iprint=11,mxiter=100,do_rmsd=.true.,do_init=.false.)
+
+! ------
+! test 5
+! ------
+ eig(1) = -2.d0; eig(2) = -1.d0; eig(3) = +0.8d0; eig(4) = +2.3d0
+
+ ymin = 2.d0*(eig(3)-eig(2))
+ ymax = 2.d0*(eig(4)-eig(1))
+
+ call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
+                      tolerr=1.d-06,iprint=11,do_rmsd=.true.,do_nlap=.true.)
 
 end program test_laplace
 !==============================================================================!
