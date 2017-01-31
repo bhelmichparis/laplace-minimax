@@ -55,8 +55,9 @@ CRIT2=`$GREP "range or orbital energy denominator:\ *0.680E+01\ *0.920E+02" $log
 CRIT3=`$GREP "range or orbital energy denominator:\ *0.320E+00\ *0.920E+04" $log | wc -l`
 CRIT4=`$GREP "range or orbital energy denominator:\ *0.435E+02\ *0.464E+02" $log | wc -l`
 CRIT5=`$GREP "range or orbital energy denominator:\ *0.360E+01\ *0.860E+01" $log | wc -l`
-TEST[1]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4 \+ $CRIT5`
-CTRL[1]=5
+CRIT6=`$GREP "range or orbital energy denominator:\ *0.400E+01\ *0.520E+01" $log | wc -l`
+TEST[1]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4 \+ $CRIT5 \+ $CRIT6`
+CTRL[1]=6
 ERROR[1]="INCORRECT ORBITAL ENERGY DENOMINATOR RANGE NOT CORRECT"
 
 # max error:
@@ -65,8 +66,9 @@ CRIT2=`$GREP "maximum absolute error of distribution:\ *0.754E-08" $log | wc -l`
 CRIT3=`$GREP "maximum absolute error of distribution:\ *0.589E-10" $log | wc -l`
 CRIT4=`$GREP "maximum absolute error of distribution:\ *0.169E-11" $log | wc -l`
 CRIT5=`$GREP "maximum absolute error of distribution:\ *0.844E-07" $log | wc -l`
-TEST[2]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4  \+ $CRIT5`
-CTRL[2]=5
+CRIT6=`$GREP "maximum absolute error of distribution:\ *0.851E-11" $log | wc -l`
+TEST[2]=`expr $CRIT1 \+ $CRIT2 \+ $CRIT3 \+ $CRIT4 \+ $CRIT5 \+ $CRIT6`
+CTRL[2]=6
 ERROR[2]="MAXIMUM ABSOLUTE ERROR NOT CORRECT"
 
 # RMSD error:
@@ -147,13 +149,22 @@ CRIT1=`$GREP "1\ *0.0557756372\ *0.1443139699" $log | wc -l`
 CRIT2=`$GREP "2\ *0.3048285366\ *0.3619075837" $log | wc -l`
 CRIT3=`$GREP "3\ *0.8075314691\ *0.6665573902" $log | wc -l`
 CRIT4=`$GREP "4\ *1.7280901336\ *1.2665223550" $log | wc -l`
-TEST[8]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3  \+ $CRIT4`
+TEST[8]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3 \+ $CRIT4`
 CTRL[8]=4
 ERROR[8]="5TH SET OF QUADRATURE POINTS NOT CORRECT"
 
+# Laplace points (6):
+CRIT1=`$GREP "1\ *0.0704713670\ *0.1819758743" $log | wc -l`
+CRIT2=`$GREP "2\ *0.3817540894\ *0.4483496516" $log | wc -l`
+CRIT3=`$GREP "3\ *0.9937507505\ *0.7976273796" $log | wc -l`
+CRIT4=`$GREP "4\ *2.0641524555\ *1.4334683939" $log | wc -l`
+TEST[9]=`expr $CRIT1  \+ $CRIT2  \+ $CRIT3 \+ $CRIT4`
+CTRL[9]=4
+ERROR[9]="6TH SET OF QUADRATURE POINTS NOT CORRECT"
+
 PASSED=1
 #for i in 1 2 3 4 5 6 7
-for i in 1 2 4 5 6 7 8
+for i in 1 2 4 5 6 7 8 9
 do
    if [ ${TEST[i]} -ne ${CTRL[i]} ]; then
      echo "${ERROR[i]} ( test = ${TEST[i]}; control = ${CTRL[i]} ); "

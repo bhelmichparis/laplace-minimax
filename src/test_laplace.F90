@@ -87,5 +87,16 @@ program test_laplace
  call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
                       tolerr=1.d-06,iprint=11,do_rmsd=.true.,do_nlap=.true.)
 
+! ------
+! test 6
+! ------
+ eig(1) = -1.3d0; eig(2) = -1.d0; eig(3) = +1.0d0; eig(4) = +1.3d0
+
+ ymin = 2.d0*(eig(3)-eig(2))
+ ymax = 2.d0*(eig(4)-eig(1))
+
+ call laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
+                      tolerr=1.d-9,iprint=11,do_rmsd=.true.,do_nlap=.true.)
+
 end program test_laplace
 !==============================================================================!
