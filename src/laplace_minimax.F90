@@ -83,7 +83,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 #include "consts.h"
 
 ! constants:
- logical, parameter :: locdbg = .false.
+ logical, parameter :: locdbg = .true.
  character(len=*), parameter :: chrdbg = 'laplace_minimax>'
  
 ! input:

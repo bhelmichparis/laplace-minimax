@@ -51,10 +51,37 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 !-----------------------------------------------------------------------------!
  case (1)
 !-----------------------------------------------------------------------------!
-  if      (rlen.gt.1.D00 .and. rlen.le.2.D00) then
-   call lap_assign_para(wghts,wghts_init_n01_2E00,nlap)
-   call lap_assign_para(xpnts,xpnts_init_n01_2E00,nlap)
-  else if (rlen.gt.2.D00 .and. rlen.le.3.D00) then
+  if      (rlen.lt.1.100D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1050,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1050,nlap)
+  else if (rlen.lt.1.200D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1100,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1100,nlap)
+  else if (rlen.lt.1.300D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1200,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1200,nlap)
+  else if (rlen.lt.1.400D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1300,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1300,nlap)
+  else if (rlen.lt.1.500D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1400,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1400,nlap)
+  else if (rlen.lt.1.600D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1500,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1500,nlap)
+  else if (rlen.lt.1.700D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1600,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1600,nlap)
+  else if (rlen.lt.1.800D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1700,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1700,nlap)
+  else if (rlen.lt.1.900D00) then            
+   call lap_assign_para(wghts,wghts_init_n01_1800,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1800,nlap)
+  else if (rlen.lt.2.D00) then
+   call lap_assign_para(wghts,wghts_init_n01_1900,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n01_1900,nlap)
+  else if (rlen.lt.3.D00) then
    call lap_assign_para(wghts,wghts_init_n01_2E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n01_2E00,nlap)
   else if (rlen.gt.3.D00 .and. rlen.le.4.D00) then
@@ -86,13 +113,187 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 !-----------------------------------------------------------------------------!
  case (2)
 !-----------------------------------------------------------------------------!
-  if      (rlen.gt.1.D00 .and. rlen.le.2.D00) then
+  if      (rlen.lt.1.055D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1050,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1050,nlap)
+  else if (rlen.lt.1.060D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1055,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1055,nlap)
+  else if (rlen.lt.1.065D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1060,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1060,nlap)
+  else if (rlen.lt.1.070D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1065,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1065,nlap)
+  else if (rlen.lt.1.075D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1070,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1070,nlap)
+  else if (rlen.lt.1.080D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1075,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1075,nlap)
+  else if (rlen.lt.1.085D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1080,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1080,nlap)
+  else if (rlen.lt.1.090D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1085,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1085,nlap)
+  else if (rlen.lt.1.095D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1090,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1090,nlap)
+  else if (rlen.lt.1.100D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1095,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1095,nlap)
+  else if (rlen.lt.1.105D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1100,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1100,nlap)
+  else if (rlen.lt.1.110D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1105,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1105,nlap)
+  else if (rlen.lt.1.115D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1110,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1110,nlap)
+  else if (rlen.lt.1.120D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1115,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1115,nlap)
+  else if (rlen.lt.1.125D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1120,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1120,nlap)
+  else if (rlen.lt.1.130D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1125,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1125,nlap)
+  else if (rlen.lt.1.135D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1130,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1130,nlap)
+  else if (rlen.lt.1.140D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1135,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1135,nlap)
+  else if (rlen.lt.1.145D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1140,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1140,nlap)
+  else if (rlen.lt.1.150D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1145,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1145,nlap)
+  else if (rlen.lt.1.160D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1150,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1150,nlap)
+  else if (rlen.lt.1.170D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1160,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1160,nlap)
+  else if (rlen.lt.1.180D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1170,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1170,nlap)
+  else if (rlen.lt.1.190D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1180,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1180,nlap)
+  else if (rlen.lt.1.200D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1190,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1190,nlap)
+  else if (rlen.lt.1.210D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1200,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1200,nlap)
+  else if (rlen.lt.1.220D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1210,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1210,nlap)
+  else if (rlen.lt.1.230D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1220,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1220,nlap)
+  else if (rlen.lt.1.240D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1230,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1230,nlap)
+  else if (rlen.lt.1.250D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1240,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1240,nlap)
+  else if (rlen.lt.1.260D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1250,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1250,nlap)
+  else if (rlen.lt.1.270D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1260,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1260,nlap)
+  else if (rlen.lt.1.280D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1270,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1270,nlap)
+  else if (rlen.lt.1.290D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1280,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1280,nlap)
+  else if (rlen.lt.1.300D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1290,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1290,nlap)
+  else if (rlen.lt.1.320D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1300,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1300,nlap)
+  else if (rlen.lt.1.330D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1320,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1320,nlap)
+  else if (rlen.lt.1.350D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1330,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1330,nlap)
+  else if (rlen.lt.1.370D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1350,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1350,nlap)
+  else if (rlen.lt.1.400D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1370,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1370,nlap)
+  else if (rlen.lt.1.420D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1400,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1400,nlap)
+  else if (rlen.lt.1.430D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1420,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1420,nlap)
+  else if (rlen.lt.1.450D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1430,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1430,nlap)
+  else if (rlen.lt.1.470D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1450,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1450,nlap)
+  else if (rlen.lt.1.500D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1470,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1470,nlap)
+  else if (rlen.lt.1.520D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1500,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1500,nlap)
+  else if (rlen.lt.1.550D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1520,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1520,nlap)
+  else if (rlen.lt.1.570D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1550,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1550,nlap)
+  else if (rlen.lt.1.600D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1570,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1570,nlap)
+  else if (rlen.lt.1.620D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1600,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1600,nlap)
+  else if (rlen.lt.1.650D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1620,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1620,nlap)
+  else if (rlen.lt.1.670D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1650,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1650,nlap)
+  else if (rlen.lt.1.700D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1670,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1670,nlap)
+  else if (rlen.lt.1.750D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1700,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1700,nlap)
+  else if (rlen.lt.1.800D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1750,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1750,nlap)
+  else if (rlen.lt.1.850D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1800,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1800,nlap)
+  else if (rlen.lt.1.900D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1850,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1850,nlap)
+  else if (rlen.lt.1.950D00) then            
+   call lap_assign_para(wghts,wghts_init_n02_1900,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1900,nlap)
+  else if (rlen.lt.2.D00) then
+   call lap_assign_para(wghts,wghts_init_n02_1950,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n02_1950,nlap)
+  else if (rlen.lt.3.D00) then
    call lap_assign_para(wghts,wghts_init_n02_2E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n02_2E00,nlap)
-  else if (rlen.gt.2.D00 .and. rlen.le.3.D00) then
-   call lap_assign_para(wghts,wghts_init_n02_2E00,nlap)
-   call lap_assign_para(xpnts,xpnts_init_n02_2E00,nlap)
-  else if (rlen.gt.3.D00 .and. rlen.le.4.D00) then
+  else if (rlen.ge.3.D00 .and. rlen.le.4.D00) then
    call lap_assign_para(wghts,wghts_init_n02_3E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n02_3E00,nlap)
   else if (rlen.gt.4.D00 .and. rlen.le.5.D00) then
@@ -133,10 +334,172 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 !-----------------------------------------------------------------------------!
  case (3)
 !-----------------------------------------------------------------------------!
-  if      (rlen.gt.1.D00 .and. rlen.le.2.D00) then
-   call lap_assign_para(wghts,wghts_init_n03_2E00,nlap)
-   call lap_assign_para(xpnts,xpnts_init_n03_2E00,nlap)
-  else if (rlen.gt.2.D00 .and. rlen.le.3.D00) then
+  if      (rlen.lt.1.075D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1070,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1070,nlap)
+  else if (rlen.lt.1.080D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1075,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1075,nlap)
+  else if (rlen.lt.1.085D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1080,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1080,nlap)
+  else if (rlen.lt.1.090D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1085,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1085,nlap)
+  else if (rlen.lt.1.095D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1090,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1090,nlap)
+  else if (rlen.lt.1.100D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1095,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1095,nlap)
+  else if (rlen.lt.1.105D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1100,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1100,nlap)
+  else if (rlen.lt.1.110D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1105,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1105,nlap)
+  else if (rlen.lt.1.115D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1110,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1110,nlap)
+  else if (rlen.lt.1.120D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1115,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1115,nlap)
+  else if (rlen.lt.1.125D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1120,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1120,nlap)
+  else if (rlen.lt.1.130D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1125,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1125,nlap)
+  else if (rlen.lt.1.135D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1130,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1130,nlap)
+  else if (rlen.lt.1.140D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1135,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1135,nlap)
+  else if (rlen.lt.1.145D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1140,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1140,nlap)
+  else if (rlen.lt.1.150D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1145,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1145,nlap)
+  else if (rlen.lt.1.160D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1150,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1150,nlap)
+  else if (rlen.lt.1.170D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1160,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1160,nlap)
+  else if (rlen.lt.1.180D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1170,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1170,nlap)
+  else if (rlen.lt.1.190D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1180,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1180,nlap)
+  else if (rlen.lt.1.200D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1190,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1190,nlap)
+  else if (rlen.lt.1.210D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1200,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1200,nlap)
+  else if (rlen.lt.1.220D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1210,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1210,nlap)
+  else if (rlen.lt.1.230D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1220,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1220,nlap)
+  else if (rlen.lt.1.240D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1230,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1230,nlap)
+  else if (rlen.lt.1.250D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1240,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1240,nlap)
+  else if (rlen.lt.1.260D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1250,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1250,nlap)
+  else if (rlen.lt.1.270D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1260,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1260,nlap)
+  else if (rlen.lt.1.280D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1270,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1270,nlap)
+  else if (rlen.lt.1.290D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1280,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1280,nlap)
+  else if (rlen.lt.1.300D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1290,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1290,nlap)
+  else if (rlen.lt.1.320D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1300,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1300,nlap)
+  else if (rlen.lt.1.330D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1320,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1320,nlap)
+  else if (rlen.lt.1.350D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1330,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1330,nlap)
+  else if (rlen.lt.1.370D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1350,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1350,nlap)
+  else if (rlen.lt.1.400D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1370,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1370,nlap)
+  else if (rlen.lt.1.420D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1400,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1400,nlap)
+  else if (rlen.lt.1.430D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1420,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1420,nlap)
+  else if (rlen.lt.1.450D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1430,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1430,nlap)
+  else if (rlen.lt.1.470D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1450,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1450,nlap)
+  else if (rlen.lt.1.500D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1470,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1470,nlap)
+  else if (rlen.lt.1.520D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1500,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1500,nlap)
+  else if (rlen.lt.1.550D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1520,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1520,nlap)
+  else if (rlen.lt.1.570D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1550,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1550,nlap)
+  else if (rlen.lt.1.600D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1570,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1570,nlap)
+  else if (rlen.lt.1.620D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1600,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1600,nlap)
+  else if (rlen.lt.1.650D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1620,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1620,nlap)
+  else if (rlen.lt.1.670D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1650,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1650,nlap)
+  else if (rlen.lt.1.700D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1670,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1670,nlap)
+  else if (rlen.lt.1.750D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1700,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1700,nlap)
+  else if (rlen.lt.1.800D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1750,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1750,nlap)
+  else if (rlen.lt.1.850D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1800,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1800,nlap)
+  else if (rlen.lt.1.900D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1850,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1850,nlap)
+  else if (rlen.lt.1.950D00) then            
+   call lap_assign_para(wghts,wghts_init_n03_1900,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1900,nlap)
+  else if (rlen.lt.2.D00) then
+   call lap_assign_para(wghts,wghts_init_n03_1950,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n03_1950,nlap)
+  else if (rlen.le.3.D00) then
    call lap_assign_para(wghts,wghts_init_n03_2E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n03_2E00,nlap)
   else if (rlen.gt.3.D00 .and. rlen.le.4.D00) then
@@ -198,10 +561,307 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 !-----------------------------------------------------------------------------!
  case (4)
 !-----------------------------------------------------------------------------!
-  if      (rlen.gt.1.D00 .and. rlen.le.2.D00) then
-   call lap_assign_para(wghts,wghts_init_n04_2E00,nlap)
-   call lap_assign_para(xpnts,xpnts_init_n04_2E00,nlap)
-  else if (rlen.gt.2.D00 .and. rlen.le.3.D00) then
+  if      (rlen.lt.1.125D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1120,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1120,nlap)
+  else if (rlen.lt.1.130D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1125,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1125,nlap)
+  else if (rlen.lt.1.135D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1130,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1130,nlap)
+  else if (rlen.lt.1.140D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1135,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1135,nlap)
+  else if (rlen.lt.1.145D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1140,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1140,nlap)
+  else if (rlen.lt.1.150D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1145,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1145,nlap)
+  else if (rlen.lt.1.155D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1150,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1150,nlap)
+  else if (rlen.lt.1.160D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1155,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1155,nlap)
+  else if (rlen.lt.1.165D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1160,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1160,nlap)
+  else if (rlen.lt.1.170D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1165,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1165,nlap)
+  else if (rlen.lt.1.175D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1170,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1170,nlap)
+  else if (rlen.lt.1.180D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1175,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1175,nlap)
+  else if (rlen.lt.1.185D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1180,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1180,nlap)
+  else if (rlen.lt.1.190D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1185,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1185,nlap)
+  else if (rlen.lt.1.195D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1190,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1190,nlap)
+  else if (rlen.lt.1.200D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1195,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1195,nlap)
+  else if (rlen.lt.1.205D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1200,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1200,nlap)
+  else if (rlen.lt.1.210D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1205,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1205,nlap)
+  else if (rlen.lt.1.215D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1210,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1210,nlap)
+  else if (rlen.lt.1.220D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1215,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1215,nlap)
+  else if (rlen.lt.1.225D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1220,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1220,nlap)
+  else if (rlen.lt.1.230D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1225,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1225,nlap)
+  else if (rlen.lt.1.235D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1230,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1230,nlap)
+  else if (rlen.lt.1.240D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1235,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1235,nlap)
+  else if (rlen.lt.1.245D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1240,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1240,nlap)
+  else if (rlen.lt.1.250D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1245,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1245,nlap)
+  else if (rlen.lt.1.260D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1250,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1250,nlap)
+  else if (rlen.lt.1.270D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1260,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1260,nlap)
+  else if (rlen.lt.1.280D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1270,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1270,nlap)
+  else if (rlen.lt.1.290D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1280,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1280,nlap)
+  else if (rlen.lt.1.300D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1290,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1290,nlap)
+  else if (rlen.lt.1.310D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1300,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1300,nlap)
+  else if (rlen.lt.1.320D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1310,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1310,nlap)
+  else if (rlen.lt.1.330D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1320,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1320,nlap)
+  else if (rlen.lt.1.340D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1330,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1330,nlap)
+  else if (rlen.lt.1.350D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1340,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1340,nlap)
+  else if (rlen.lt.1.360D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1350,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1350,nlap)
+  else if (rlen.lt.1.370D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1360,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1360,nlap)
+  else if (rlen.lt.1.380D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1370,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1370,nlap)
+  else if (rlen.lt.1.390D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1380,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1380,nlap)
+  else if (rlen.lt.1.400D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1390,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1390,nlap)
+  else if (rlen.lt.1.410D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1400,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1400,nlap)
+  else if (rlen.lt.1.420D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1410,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1410,nlap)
+  else if (rlen.lt.1.430D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1420,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1420,nlap)
+  else if (rlen.lt.1.440D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1430,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1430,nlap)
+  else if (rlen.lt.1.450D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1440,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1440,nlap)
+  else if (rlen.lt.1.460D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1450,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1450,nlap)
+  else if (rlen.lt.1.470D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1460,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1460,nlap)
+  else if (rlen.lt.1.480D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1470,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1470,nlap)
+  else if (rlen.lt.1.490D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1480,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1480,nlap)
+  else if (rlen.lt.1.500D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1490,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1490,nlap)
+  else if (rlen.lt.1.510D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1500,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1500,nlap)
+  else if (rlen.lt.1.520D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1510,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1510,nlap)
+  else if (rlen.lt.1.530D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1520,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1520,nlap)
+  else if (rlen.lt.1.540D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1530,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1530,nlap)
+  else if (rlen.lt.1.550D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1540,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1540,nlap)
+  else if (rlen.lt.1.560D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1550,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1550,nlap)
+  else if (rlen.lt.1.570D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1560,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1560,nlap)
+  else if (rlen.lt.1.580D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1570,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1570,nlap)
+  else if (rlen.lt.1.590D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1580,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1580,nlap)
+  else if (rlen.lt.1.600D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1590,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1590,nlap)
+  else if (rlen.lt.1.610D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1600,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1600,nlap)
+  else if (rlen.lt.1.620D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1610,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1610,nlap)
+  else if (rlen.lt.1.630D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1620,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1620,nlap)
+  else if (rlen.lt.1.640D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1630,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1630,nlap)
+  else if (rlen.lt.1.650D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1640,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1640,nlap)
+  else if (rlen.lt.1.660D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1650,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1650,nlap)
+  else if (rlen.lt.1.670D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1660,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1660,nlap)
+  else if (rlen.lt.1.680D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1670,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1670,nlap)
+  else if (rlen.lt.1.690D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1680,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1680,nlap)
+  else if (rlen.lt.1.700D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1690,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1690,nlap)
+  else if (rlen.lt.1.710D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1700,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1700,nlap)
+  else if (rlen.lt.1.720D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1710,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1710,nlap)
+  else if (rlen.lt.1.730D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1720,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1720,nlap)
+  else if (rlen.lt.1.740D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1730,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1730,nlap)
+  else if (rlen.lt.1.750D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1740,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1740,nlap)
+  else if (rlen.lt.1.760D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1750,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1750,nlap)
+  else if (rlen.lt.1.770D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1760,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1760,nlap)
+  else if (rlen.lt.1.780D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1770,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1770,nlap)
+  else if (rlen.lt.1.790D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1780,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1780,nlap)
+  else if (rlen.lt.1.800D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1790,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1790,nlap)
+  else if (rlen.lt.1.810D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1800,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1800,nlap)
+  else if (rlen.lt.1.820D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1810,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1810,nlap)
+  else if (rlen.lt.1.830D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1820,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1820,nlap)
+  else if (rlen.lt.1.840D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1830,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1830,nlap)
+  else if (rlen.lt.1.850D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1840,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1840,nlap)
+  else if (rlen.lt.1.860D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1850,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1850,nlap)
+  else if (rlen.lt.1.870D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1860,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1860,nlap)
+  else if (rlen.lt.1.880D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1870,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1870,nlap)
+  else if (rlen.lt.1.890D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1880,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1880,nlap)
+  else if (rlen.lt.1.900D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1890,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1890,nlap)
+  else if (rlen.lt.1.910D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1900,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1900,nlap)
+  else if (rlen.lt.1.920D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1910,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1910,nlap)
+  else if (rlen.lt.1.930D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1920,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1920,nlap)
+  else if (rlen.lt.1.940D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1930,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1930,nlap)
+  else if (rlen.lt.1.950D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1940,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1940,nlap)
+  else if (rlen.lt.1.960D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1950,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1950,nlap)
+  else if (rlen.lt.1.970D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1960,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1960,nlap)
+  else if (rlen.lt.1.980D00) then            
+   call lap_assign_para(wghts,wghts_init_n04_1970,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1970,nlap)
+  else if (rlen.lt.2.D00) then               
+   call lap_assign_para(wghts,wghts_init_n04_1980,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n04_1980,nlap)
+  else if (rlen.ge.2.D00 .and. rlen.le.3.D00) then
    call lap_assign_para(wghts,wghts_init_n04_2E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n04_2E00,nlap)
   else if (rlen.gt.3.D00 .and. rlen.le.4.D00) then
@@ -272,10 +932,191 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 !-----------------------------------------------------------------------------!
  case (5)
 !-----------------------------------------------------------------------------!
-  if      (rlen.gt.1.D00 .and. rlen.le.2.D00) then
-   call lap_assign_para(wghts,wghts_init_n05_2E00,nlap)
-   call lap_assign_para(xpnts,xpnts_init_n05_2E00,nlap)
-  else if (rlen.gt.2.D00 .and. rlen.le.3.D00) then
+
+  if      (rlen.lt.1.350D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1340,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1340,nlap)
+  else if (rlen.lt.1.360D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1350,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1350,nlap)
+  else if (rlen.lt.1.370D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1360,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1360,nlap)
+  else if (rlen.lt.1.380D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1370,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1370,nlap)
+  else if (rlen.lt.1.390D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1380,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1380,nlap)
+  else if (rlen.lt.1.400D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1390,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1390,nlap)
+  else if (rlen.lt.1.410D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1400,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1400,nlap)
+  else if (rlen.lt.1.420D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1410,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1410,nlap)
+  else if (rlen.lt.1.430D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1420,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1420,nlap)
+  else if (rlen.lt.1.440D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1430,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1430,nlap)
+  else if (rlen.lt.1.450D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1440,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1440,nlap)
+  else if (rlen.lt.1.460D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1450,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1450,nlap)
+  else if (rlen.lt.1.470D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1460,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1460,nlap)
+  else if (rlen.lt.1.480D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1470,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1470,nlap)
+  else if (rlen.lt.1.490D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1480,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1480,nlap)
+  else if (rlen.lt.1.500D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1490,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1490,nlap)
+  else if (rlen.lt.1.510D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1500,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1500,nlap)
+  else if (rlen.lt.1.520D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1510,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1510,nlap)
+  else if (rlen.lt.1.530D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1520,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1520,nlap)
+  else if (rlen.lt.1.540D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1530,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1530,nlap)
+  else if (rlen.lt.1.550D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1540,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1540,nlap)
+  else if (rlen.lt.1.560D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1550,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1550,nlap)
+  else if (rlen.lt.1.570D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1560,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1560,nlap)
+  else if (rlen.lt.1.580D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1570,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1570,nlap)
+  else if (rlen.lt.1.590D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1580,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1580,nlap)
+  else if (rlen.lt.1.600D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1590,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1590,nlap)
+  else if (rlen.lt.1.610D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1600,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1600,nlap)
+  else if (rlen.lt.1.620D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1610,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1610,nlap)
+  else if (rlen.lt.1.630D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1620,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1620,nlap)
+  else if (rlen.lt.1.640D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1630,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1630,nlap)
+  else if (rlen.lt.1.650D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1640,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1640,nlap)
+  else if (rlen.lt.1.660D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1650,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1650,nlap)
+  else if (rlen.lt.1.670D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1660,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1660,nlap)
+  else if (rlen.lt.1.680D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1670,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1670,nlap)
+  else if (rlen.lt.1.690D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1680,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1680,nlap)
+  else if (rlen.lt.1.700D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1690,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1690,nlap)
+  else if (rlen.lt.1.710D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1700,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1700,nlap)
+  else if (rlen.lt.1.720D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1710,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1710,nlap)
+  else if (rlen.lt.1.730D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1720,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1720,nlap)
+  else if (rlen.lt.1.740D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1730,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1730,nlap)
+  else if (rlen.lt.1.750D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1740,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1740,nlap)
+  else if (rlen.lt.1.760D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1750,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1750,nlap)
+  else if (rlen.lt.1.770D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1760,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1760,nlap)
+  else if (rlen.lt.1.780D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1770,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1770,nlap)
+  else if (rlen.lt.1.790D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1780,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1780,nlap)
+  else if (rlen.lt.1.800D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1790,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1790,nlap)
+  else if (rlen.lt.1.810D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1800,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1800,nlap)
+  else if (rlen.lt.1.820D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1810,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1810,nlap)
+  else if (rlen.lt.1.830D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1820,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1820,nlap)
+  else if (rlen.lt.1.850D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1830,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1830,nlap)
+  else if (rlen.lt.1.860D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1850,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1850,nlap)
+  else if (rlen.lt.1.870D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1860,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1860,nlap)
+  else if (rlen.lt.1.880D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1870,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1870,nlap)
+  else if (rlen.lt.1.890D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1880,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1880,nlap)
+  else if (rlen.lt.1.900D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1890,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1890,nlap)
+  else if (rlen.lt.1.910D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1900,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1900,nlap)
+  else if (rlen.lt.1.920D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1910,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1910,nlap)
+  else if (rlen.lt.1.930D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1920,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1920,nlap)
+  else if (rlen.lt.1.950D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1930,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1930,nlap)
+  else if (rlen.lt.1.970D00) then            
+   call lap_assign_para(wghts,wghts_init_n05_1950,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1950,nlap)
+  else if (rlen.lt.2.D00) then               
+   call lap_assign_para(wghts,wghts_init_n05_1970,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n05_1970,nlap)
+  else if (rlen.ge.2.D00 .and. rlen.le.3.D00) then
    call lap_assign_para(wghts,wghts_init_n05_2E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n05_2E00,nlap)
   else if (rlen.gt.3.D00 .and. rlen.le.4.D00) then
@@ -364,10 +1205,157 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 !-----------------------------------------------------------------------------!
  case (6)
 !-----------------------------------------------------------------------------!
-  if      (rlen.gt.1.D00 .and. rlen.le.2.D00) then
-   call lap_assign_para(wghts,wghts_init_n06_2E00,nlap)
-   call lap_assign_para(xpnts,xpnts_init_n06_2E00,nlap)
-  else if (rlen.gt.2.D00 .and. rlen.le.3.D00) then
+  if      (rlen.lt.1.490D00) then                
+   call lap_assign_para(wghts,wghts_init_n06_1480,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1480,nlap)
+  else if (rlen.lt.1.500D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1490,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1490,nlap)
+  else if (rlen.lt.1.510D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1500,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1500,nlap)
+  else if (rlen.lt.1.520D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1510,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1510,nlap)
+  else if (rlen.lt.1.530D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1520,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1520,nlap)
+  else if (rlen.lt.1.540D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1530,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1530,nlap)
+  else if (rlen.lt.1.550D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1540,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1540,nlap)
+  else if (rlen.lt.1.560D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1550,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1550,nlap)
+  else if (rlen.lt.1.570D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1560,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1560,nlap)
+  else if (rlen.lt.1.580D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1570,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1570,nlap)
+  else if (rlen.lt.1.590D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1580,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1580,nlap)
+  else if (rlen.lt.1.600D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1590,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1590,nlap)
+  else if (rlen.lt.1.610D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1600,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1600,nlap)
+  else if (rlen.lt.1.620D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1610,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1610,nlap)
+  else if (rlen.lt.1.630D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1620,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1620,nlap)
+  else if (rlen.lt.1.640D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1630,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1630,nlap)
+  else if (rlen.lt.1.650D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1640,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1640,nlap)
+  else if (rlen.lt.1.660D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1650,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1650,nlap)
+  else if (rlen.lt.1.670D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1660,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1660,nlap)
+  else if (rlen.lt.1.680D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1670,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1670,nlap)
+  else if (rlen.lt.1.690D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1680,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1680,nlap)
+  else if (rlen.lt.1.700D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1690,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1690,nlap)
+  else if (rlen.lt.1.710D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1700,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1700,nlap)
+  else if (rlen.lt.1.720D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1710,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1710,nlap)
+  else if (rlen.lt.1.730D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1720,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1720,nlap)
+  else if (rlen.lt.1.740D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1730,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1730,nlap)
+  else if (rlen.lt.1.750D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1740,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1740,nlap)
+  else if (rlen.lt.1.760D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1750,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1750,nlap)
+  else if (rlen.lt.1.770D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1760,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1760,nlap)
+  else if (rlen.lt.1.780D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1770,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1770,nlap)
+  else if (rlen.lt.1.790D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1780,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1780,nlap)
+  else if (rlen.lt.1.800D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1790,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1790,nlap)
+  else if (rlen.lt.1.810D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1800,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1800,nlap)
+  else if (rlen.lt.1.820D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1810,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1810,nlap)
+  else if (rlen.lt.1.830D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1820,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1820,nlap)
+  else if (rlen.lt.1.850D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1830,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1830,nlap)
+  else if (rlen.lt.1.860D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1850,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1850,nlap)
+  else if (rlen.lt.1.870D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1860,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1860,nlap)
+  else if (rlen.lt.1.880D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1870,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1870,nlap)
+  else if (rlen.lt.1.890D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1880,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1880,nlap)
+  else if (rlen.lt.1.900D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1890,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1890,nlap)
+  else if (rlen.lt.1.910D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1900,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1900,nlap)
+  else if (rlen.lt.1.920D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1910,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1910,nlap)
+  else if (rlen.lt.1.930D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1920,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1920,nlap)
+  else if (rlen.lt.1.940D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1930,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1930,nlap)
+  else if (rlen.lt.1.950D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1940,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1940,nlap)
+  else if (rlen.lt.1.960D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1950,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1950,nlap)
+  else if (rlen.lt.1.970D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1960,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1960,nlap)
+  else if (rlen.lt.1.980D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1970,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1970,nlap)
+  else if (rlen.lt.2.000D00) then            
+   call lap_assign_para(wghts,wghts_init_n06_1980,nlap)
+   call lap_assign_para(xpnts,xpnts_init_n06_1980,nlap)
+  else if (rlen.ge.2.D00 .and. rlen.le.3.D00) then
    call lap_assign_para(wghts,wghts_init_n06_2E00,nlap)
    call lap_assign_para(xpnts,xpnts_init_n06_2E00,nlap)
   else if (rlen.gt.3.D00 .and. rlen.le.4.D00) then
