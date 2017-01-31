@@ -12,6 +12,7 @@ subroutine lap_init(errbnd,xpnts,wghts,rnge,nlap)
 
 #include "consts.h"
 #include "init.h"
+#include "init_tiny.h"
 #include "error.h"
 
 ! constants:
