@@ -13,7 +13,7 @@ subroutine lap_numlap(errbnd,nlap,tolerr,rnge)
 #include "consts.h"
 
 ! constants:
- logical, parameter :: locdbg = .true.
+ logical, parameter :: locdbg = .false.
  character(len=*), parameter :: chrdbg = 'lap_numlap>'
 
  integer, parameter :: luinit = 11

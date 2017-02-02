@@ -13,7 +13,7 @@ subroutine lap_rderror(errbnd,rnge,nlap)
 #include "consts.h"
 
 ! constants:
- logical, parameter :: locdbg = .true.
+ logical, parameter :: locdbg = .false.
  character(len=*), parameter :: chrdbg = 'lap_rderror>'
 
  integer, parameter :: luinit = 11

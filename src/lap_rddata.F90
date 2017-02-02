@@ -13,7 +13,7 @@ subroutine lap_rddata(xpnts,wghts,rnge,nlap)
 #include "consts.h"
 
 ! constants:
- logical, parameter :: locdbg = .true.
+ logical, parameter :: locdbg = .false.
  character(len=*), parameter :: chrdbg = 'lap_rddata>'
 
  integer, parameter :: luinit = 11
