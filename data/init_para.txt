@@ -1,5 +1,6 @@
 #
 # taken from http://www.mis.mpg.de/scicomp/EXP_SUM/1_x/
+#  and updated with own values
 #
 1_xk01_1100
  2.5937428785058687097375695884693413972855   {omega 1 }
