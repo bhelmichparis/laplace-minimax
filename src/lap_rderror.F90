@@ -66,9 +66,16 @@ subroutine lap_rderror(errbnd,rnge,nlap)
   if (iopt.gt.0) then
    line = adjustl(line)
    line = trim(line)
-   read(line(8:8),*) itmp1
-   read(line(10:12),*) itmp2
-   dtmp = real(itmp1)*10.d0**itmp2
+
+   read(line(8:8),"(I1)") itmp1
+   if (line(9:9).eq."E") then
+    read(line(10:11),"(I2)") itmp2
+    dtmp = real(itmp1,8)*10.d0**itmp2
+   else
+    read(line(9:11),"(I3)") itmp2
+    dtmp = real(itmp1,8)+real(itmp2,8)/1000.d0
+   end if
+
    if (dtmp.le.rlen) then
     ctmp(1:5) = line(7:11)
     lower = .true.
@@ -84,7 +91,7 @@ subroutine lap_rderror(errbnd,rnge,nlap)
 
  end do
 
- if (locdbg) write(istdout,*) chrdbg, "token:", token(1:10)
+ if (locdbg) write(istdout,*) chrdbg, "token:", token(1:11)
 
  if (.not.found_token) then
   write(istdout,'(/a,/,a,e10.3,a,/,a,e10.3,a/)') &

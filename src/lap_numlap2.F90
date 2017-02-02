@@ -57,8 +57,13 @@ subroutine lap_numlap2(errbnd,nlap,tolerr,rnge)
   if (line(1:4).ne."1_xk") cycle
 
   read(line(8:8),"(I1)") itmp1
-  read(line(10:11),"(I2)") itmp2
-  dtmp = real(itmp1,8)*10.d0**itmp2
+  if (line(9:9).eq."E") then
+   read(line(10:11),"(I2)") itmp2
+   dtmp = real(itmp1,8)*10.d0**itmp2
+  else
+   read(line(9:11),"(I3)") itmp2
+   dtmp = real(itmp1,8)+real(itmp2,8)/1000.d0
+  end if
 
   if (dtmp.gt.rlen) then
    read(line(12:21),"(ES10.3)") errbnd(1)
