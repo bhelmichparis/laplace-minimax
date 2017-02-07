@@ -192,7 +192,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 
  ! print range
  if (iand(iprnt0,1).eq.1) then
-  write(istdout,'(a,2(1x,e12.3))')     '  range or orbital energy denominator:',ymin,ymax
+  write(istdout,'(a,2(1x,e12.3))')     '     range or orbital energy denominator:',ymin,ymax
  end if
  
  ! numerical quadrature is done within bounds [1,R]
@@ -206,6 +206,11 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   errbnd(1) = -10.**(-nlap)
  end if
  errbnd(2) = d0
+
+ ! print number of Laplace points
+ if (iand(iprnt0,1).eq.1) then
+  write(istdout,'(a,1x,i2)') '             number of quadrature points:',nlap
+ end if
 
  ! either start values for predefined boundaries from file 
  if (do_init0) then
@@ -300,7 +305,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
  if (iand(iprnt0,1).eq.1) then
   write(istdout,'(a,2(1x,e12.3))')     '  maximum absolute error of distribution:',abs(errbnd(1))
   if (do_rmsd0) &
-   write(istdout,'(a,2(1x,e12.3))')     '  RMSD error of distribution:            ',errmsd
+   write(istdout,'(a,2(1x,e12.3))')    '              RMSD error of distribution:',errmsd
   write(istdout,'(/a)')      '                  exponents              weights'
   write(istdout,'(a)')       '    ================================================='
   do ilap = 1,nlap
