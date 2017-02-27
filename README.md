@@ -29,12 +29,14 @@ To compile the code, do  the following:
            ifort    ...
            pgf95    ...
 
-  (2) make 
+  (2) export LAPLACE_ROOT="/path/to/laplace_minimax/directory"
+
+  (3) make 
 
        - generates the library liblaplace_minimax.a that can be
          linked externally and is provided in lib/ 
 
-  (3) make test
+  (4) make test
 
        - compiles test_laplace and links the library. Three test
          examples are run tested by a Dalton-like script
