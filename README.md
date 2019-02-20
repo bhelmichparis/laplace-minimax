@@ -6,7 +6,10 @@ of orbital energy denominators using the minimax approximation
 
           written by Benjamin Helmich-Paris
 
-              VU University Amsterdam
+              VU University Amsterdam (2015-2017)
+              
+              Max Planck Institute for Coal Research (since 2018)
+             
 
 
 
