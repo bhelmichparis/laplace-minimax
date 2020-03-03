@@ -273,12 +273,12 @@ subroutine dd128_gemv(trans,m,n,alpha,dda,lda,ddx,incx,beta,ddy,incy)
  integer :: i,info,ix,iy,j,jx,jy,kx,ky,lenx,leny
 
 ! external functions:
- logical, external :: lsame
+ logical, external :: dd128_lsame
 !
 !     test the input parameters.
 !
  info = 0
- if (.not.lsame(trans,'n') .and. .not.lsame(trans,'t') .and. .not.lsame(trans,'c')) then
+ if (.not.dd128_lsame(trans,'n') .and. .not.dd128_lsame(trans,'t') .and. .not.dd128_lsame(trans,'c')) then
   info = 1
  else if (m.lt.0) then
   info = 2
@@ -292,7 +292,7 @@ subroutine dd128_gemv(trans,m,n,alpha,dda,lda,ddx,incx,beta,ddy,incy)
   info = 11
  end if
  if (info.ne.0) then
-  call xerbla('dd128_gemv ',info)
+  call dd128_xerbla('dd128_gemv ',info)
   return
  end if
 !
@@ -303,7 +303,7 @@ subroutine dd128_gemv(trans,m,n,alpha,dda,lda,ddx,incx,beta,ddy,incy)
 !     set  lenx  and  leny, the lengths of the vectors x and y, and set
 !     up the start points in  x  and  y.
 !
- if (lsame(trans,'n')) then
+ if (dd128_lsame(trans,'n')) then
   lenx = n
   leny = m
  else
@@ -353,7 +353,7 @@ subroutine dd128_gemv(trans,m,n,alpha,dda,lda,ddx,incx,beta,ddy,incy)
   end if
  end if
  if (alpha(1).eq.zero) return
- if (lsame(trans,'n')) then
+ if (dd128_lsame(trans,'n')) then
 !
 !        form  y := alpha*a*x + y.
 !
@@ -713,7 +713,7 @@ end subroutine dd128_nrm2
 !> \ingroup aux_blas
 !
 !  =====================================================================
-      LOGICAL FUNCTION lsame(CA,CB)
+      LOGICAL FUNCTION dd128_lsame(CA,CB)
 !
 !  -- Reference BLAS level1 routine (version 3.1) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -735,8 +735,8 @@ end subroutine dd128_nrm2
 !
 !     Test if the characters are equal
 !
-      lsame = ca .EQ. cb
-      IF (lsame) RETURN
+      dd128_lsame = ca .EQ. cb
+      IF (dd128_lsame) RETURN
 !
 !     Now test for equivalence if both characters are alphabetic.
 !
@@ -778,11 +778,11 @@ end subroutine dd128_nrm2
           IF (inta.GE.225 .AND. inta.LE.250) inta = inta - 32
           IF (intb.GE.225 .AND. intb.LE.250) intb = intb - 32
       END IF
-      lsame = inta .EQ. intb
+      dd128_lsame = inta .EQ. intb
 !
       RETURN
 !
-!     End of LSAME
+!     End of dd128_LSAME
 !
       END
 
@@ -846,7 +846,7 @@ end subroutine dd128_nrm2
 !> \ingroup aux_blas
 !
 !  =====================================================================
-      SUBROUTINE xerbla( SRNAME, INFO )
+      SUBROUTINE dd128_xerbla( SRNAME, INFO )
 !
 !  -- Reference BLAS level1 routine (version 3.4.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
