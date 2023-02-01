@@ -109,9 +109,14 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
 ! local arrays:
  integer :: ipiv(2*mxlap+1)
  real(8) :: xpts(2,2*mxlap+1), xpnts2(2,mxlap), wghts2(2,mxlap), &
-            jaco(2,2*mxlap+1,2*mxlap+1), func(2,2*mxlap+1), &
+            func(2,2*mxlap+1), &
             xold(2,2*mxlap+1), xnew(2,2*mxlap+1), delx(2,2*mxlap+1), &
             grad(2,2*mxlap+1), errbnd(2) 
+
+! LV2023: jaco defined as allocatable instead of static to avoid compiler warnings
+ real(8), allocatable :: jaco(:,:,:) 
+
+ allocate(jaco(2,2*mxlap+1,2*mxlap+1))
 
  ! process optional arguments
  if (present(mxiter)) then
