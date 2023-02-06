@@ -320,6 +320,7 @@ subroutine laplace_minimax(errmax,xpnts,wghts,nlap,ymin,ymax,&
   call flush(istdout)
  end if
 
+ deallocate(jaco)
  if (locdbg .or. (iand(iprnt0,4).eq.4)) write(istdout,"(a)") "left laplace_minimax ..."
 
 end subroutine laplace_minimax
