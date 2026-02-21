@@ -42,8 +42,17 @@ set(
   ${PROJECT_SOURCE_DIR}/src/laplace_minimax.F90
 )
 
-# test source files
-set(TEST_SOURCES ${PROJECT_SOURCE_DIR}/src/test_laplace.F90)
+# the static library
+add_library(laplace-minimax STATIC ${SOURCES})
+
+# Install static library
+install(TARGETS laplace-minimax ARCHIVE DESTINATION lib)
+
+# Install header (fortran interface)
+install(
+  FILES ${PROJECT_SOURCE_DIR}/inc/laplace_minimax.h
+  DESTINATION include/laplace-minimax
+)
 
 # data files
 set(
@@ -52,11 +61,17 @@ set(
   ${PROJECT_SOURCE_DIR}/data/init_para.txt
 )
 
+# copy data files
+install(FILES ${DATA} DESTINATION data)
+
+# .. if this has any effect?
+set(ENV{LAPLACE_ROOT} ${CMAKE_INSTALL_PREFIX})
+
+# test source files
+set(TEST_SOURCES ${PROJECT_SOURCE_DIR}/src/test_laplace.F90)
+
 # creates test suite
 add_executable(test_laplace ${TEST_SOURCES} ${SOURCES})
-
-# the static library
-add_library(laplace-minimax STATIC ${SOURCES})
 
 # take care of test
 find_program(BASH_PROGRAM bash)
@@ -68,18 +83,3 @@ if(BASH_PROGRAM)
     ${PROJECT_SOURCE_DIR}/bin/run_test.sh
   )
 endif(BASH_PROGRAM)
-
-# Install static library
-install(TARGETS laplace-minimax ARCHIVE DESTINATION lib)
-
-# Install header (fortran interface)
-install(
-  FILES ${PROJECT_SOURCE_DIR}/inc/laplace_minimax.h
-  DESTINATION include/laplace-minimax
-)
-
-# copy data files
-install(FILES ${DATA} DESTINATION data)
-
-# .. if this has any effect?
-set(ENV{LAPLACE_ROOT} ${CMAKE_INSTALL_PREFIX})
