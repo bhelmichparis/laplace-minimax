@@ -71,7 +71,8 @@ set(ENV{LAPLACE_ROOT} ${CMAKE_INSTALL_PREFIX})
 set(TEST_SOURCES ${PROJECT_SOURCE_DIR}/src/test_laplace.F90)
 
 # creates test suite
-add_executable(test_laplace ${TEST_SOURCES} ${SOURCES})
+add_executable(test_laplace ${TEST_SOURCES})
+target_link_libraries(test_laplace laplace-minimax)
 
 # take care of test
 find_program(BASH_PROGRAM bash)
