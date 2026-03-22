@@ -8,7 +8,9 @@ of orbital energy denominators using the minimax approximation
 
               VU University Amsterdam (2015-2017)
               
-              Max Planck Institute for Coal Research (since 2018)
+              Max Planck Institute for Coal Research (2018-2025)
+
+              FACCTs GmbH (since 2025)
              
 
 
