@@ -21,7 +21,7 @@ fi
 
 CHECK_SCRIPT='laplace-minimax.check'
 LOG_FILE='/tmp/laplace-minimax.log'
-TEST_PROG='./bin/test_laplace'
+TEST_PROG='./test_laplace'
 
 #######################################################################
 # run the test
